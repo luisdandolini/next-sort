@@ -1,0 +1,85 @@
+.teste {
+  height: 500vh;
+}
+
+.title {
+  margin-top: 8rem;
+  margin-left: 4rem;
+  font-size: 2rem;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  margin-top: 2rem;
+}
+
+.bg {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url('/background.jpg');
+  height: 310px;
+  width: 300px;
+  border-radius: .5rem .5rem 0 0;
+}
+
+.sell {
+  background-color: green;
+  color: #FFF;
+  padding: 0 1.5rem;
+  margin-top: .5rem;
+  border-radius: 8rem;
+}
+
+.name {
+  margin: auto 5rem 0 0;
+  color: #FFF;
+}
+
+.config {
+  display: flex;
+  gap: 2rem;
+  margin-right: 8rem;
+  font-size: .9rem;
+  color: #FFF;
+}
+
+.price {
+  background-color: green;
+  color: #FFF;
+  margin: .5rem auto 0 0;
+  padding: 0.2rem 0;
+  width: 160px;
+  position: relative;
+  left: -20px;
+  text-align: left;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  padding-left: 0.5rem;
+}
+
+.location {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 48px;
+  background-color: grey;
+  border-radius: 0 0 .5rem .5rem;
+  font-size: .8rem;
+  color: #FFF;
+}
+
+.view {
+  background-color: orange;
+  padding: .1rem .5rem;
+  border-radius: 8rem;
+}
+
+.carousel {
+  display: flex;
+  gap: 3rem;
+}
+
