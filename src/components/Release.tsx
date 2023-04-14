@@ -3,12 +3,12 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper";
-import styles from "../styles/Opportunity.module.css";
+import styles from "../styles/Release.module.css";
 
-export default function Opportunity() {
+export default function Release() {
   return (
     <section>
-      <h1 className={styles.title}>Oportunidades da semana</h1>
+      <h1 className={styles.title}>Pré - Lançamentos</h1>
       <div className={styles.container_carousel}>
         <Swiper
           slidesPerView={3}

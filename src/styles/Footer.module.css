@@ -1,0 +1,103 @@
+.footer {
+  background-color: #3d3939;
+  padding: 4rem 8rem
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.imobile {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  padding-bottom: 1rem;
+}
+
+.imobile p {
+  color: #116015;
+  font-size: 1.3rem;
+}
+
+.text {
+  color: #FFF;
+  font-size: .9rem;
+  padding-bottom: .3rem;
+}
+
+.contact {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  padding-bottom: .3rem;
+}
+
+.contact p {
+  color: #FFF;
+  font-size: .8rem;
+}
+
+.location {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  padding-bottom: .3rem;
+}
+
+.location p {
+  color: #FFF;
+  font-size: .9rem;
+}
+
+.text_location {
+  color: #FFF;
+  font-size: .9rem;
+  padding-bottom: .3rem;
+  margin-left: 2rem;
+}
+
+.text_news {
+  color: #FFF;
+  font-size: .9rem;
+  padding-bottom: .9rem;
+  width: 300px;
+}
+
+.name {
+  width: 100px;
+  margin-right: .5rem;
+  border: none;
+  border-radius: .2rem;
+  height: 30px;
+  font-size: .9rem;
+  padding-left: 4px;
+}
+
+.email {
+  width: 150px;
+  margin-right: .5rem;
+  border: none;
+  border-radius: .2rem;
+  height: 30px;
+  font-size: .9rem;
+  padding-left: 4px;
+}
+
+.button {
+  width: 70px;
+  margin-right: .5rem;
+  border: none;
+  border-radius: .2rem;
+  height: 30px;
+  font-size: .9rem;
+  padding-left: 4px;
+  background-color: #116015;
+  color: #FFF;
+  margin-bottom: 1rem;
+}
+
+.nets {
+  display: flex;
+  gap: 2rem;
+}

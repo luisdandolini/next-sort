@@ -3,8 +3,8 @@
 }
 
 .bg_header {
-  background-image: url('/background.jpg');
-  height: 360px;
+  background-image: url('/sortrodape.png');
+  height: 400px;
   /* height: 100vh; */
   background-position: center;
 }
@@ -65,7 +65,7 @@
   margin-top: 2rem;
   position: absolute;
   left: 50%;
-  top: 330px;
+  top: 370px;
   transform: translate(-50%, -50%);
 }
 
@@ -97,9 +97,16 @@
   height: 56px;
   border: none;
   border-radius: 0 .5rem .5rem 0;
-  padding-left: 2rem;
+  padding-left: 2.2rem;
   font-size: .9rem;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  text-overflow: ellipsis 
+}
+
+.container_search span {
+  position: absolute;
+  top: 15px;
+  left: 972px;
 }
 
 .search {

@@ -1,0 +1,43 @@
+.media {
+  background-image: url('/sortrodape.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 350px;
+}
+
+.container_carousel {
+  max-width: 1150px;
+  margin: auto;
+  cursor: pointer;
+}
+
+.title {
+  margin-top: 8rem;
+  margin-left: 10rem;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+
+.container_media {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10rem;
+  margin-top: 2rem;
+}
+
+.description {
+  color: #FFF;
+}
+
+.img {
+  padding: .9rem;
+  background-color: #FFF;
+  border-radius: .5rem;
+  margin-bottom: 1rem;
+}
+
+.text {
+  max-width: 400px;
+  font-size: .9rem;
+}
