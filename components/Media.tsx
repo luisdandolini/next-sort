@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper";
-import styles from '../styles/Media.module.css';
+import styles from '../src/styles/Media.module.css';
 import Image from 'next/image';
 
 export default function Midia() {
@@ -12,7 +12,7 @@ export default function Midia() {
       <h1 className={styles.title}>Sort na mídia</h1>
       <div className={styles.media}>
         <div className={styles.container_carousel}>
-          <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
+          <Swiper navigation={true} loop={true} modules={[Navigation]} className="mySwiper">
             <SwiperSlide>
               <div className={styles.container_media}>
                 <div className={styles.description}>

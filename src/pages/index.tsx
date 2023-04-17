@@ -2,12 +2,12 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
-import Header from '@/components/Header'
-import Opportunity from '@/components/Opportunity'
-import Release from '@/components/Release'
-import Blog from '@/components/Blog'
-import Media from '@/components/Media'
-import Footer from '@/components/Footer'
+import Header from '../../components/Header'
+import Opportunity from '../../components/Opportunity'
+import Release from '../../components/Release'
+import Blog from '../../components/Blog'
+import Media from '../../components/Media'
+import Footer from '../../components/Footer'
 
 const inter = Inter({ subsets: ['latin'] })
 

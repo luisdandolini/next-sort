@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper";
-import styles from "../styles/Opportunity.module.css";
+import styles from "../src/styles/Opportunity.module.css";
 import api from "../services/api";
 
 interface Opportunity {

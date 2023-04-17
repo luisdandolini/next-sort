@@ -1,4 +1,4 @@
-import styles from '../styles/Footer.module.css'
+import styles from '../src/styles/Footer.module.css'
 import Icon from '@mdi/react';
 import { mdiYoutube, mdiInstagram, mdiFacebook, mdiChartTimelineVariant, mdiMapMarker, mdiEmailNewsletter, mdiPhoneOutline, mdiWhatsapp, mdiAccountBox, mdiHome } from '@mdi/js';
 

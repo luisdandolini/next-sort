@@ -10,7 +10,7 @@ import {
 } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Image from 'next/image';
-import styles from '../styles/Menu.module.css';
+import styles from '../src/styles/Menu.module.css';
 
 function Menu() {
   const [collapsed, setCollapsed] = useState(true);
