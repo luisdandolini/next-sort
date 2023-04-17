@@ -8,6 +8,7 @@ import api from "../services/api";
 import Icon from '@mdi/react';
 import { mdiChevronLeft, mdiChevronRight } from '@mdi/js';
 import formatPrice from '../functions/formatPrice';
+import { useProductImageSlider } from '../functions/changeImage'
 
 interface Release {
   id: any;
@@ -22,27 +23,7 @@ interface Release {
 
 export default function Release() {
   const [releases, setReleases] = useState<Release[]>([]);
-  const [currentImageIndices, setCurrentImageIndices] = useState<{ [key: string]: number }>({});
-
-  const changeImage = (releaseId: string, direction: string) => {
-    setCurrentImageIndices((prevIndices) => {
-      const currentImageIndex = prevIndices[releaseId] || 0;
-      const release = releases.find((r) => r.id === releaseId);
-  
-      if (release) {
-        const filteredProductMedia = release.product_media.slice(0, 3);
-        const lastIndex = filteredProductMedia.length ? filteredProductMedia.length - 1 : 0;
-  
-        if (direction === "left") {
-          return { ...prevIndices, [releaseId]: currentImageIndex === 0 ? lastIndex : currentImageIndex - 1 };
-        } else {
-          return { ...prevIndices, [releaseId]: currentImageIndex === lastIndex ? 0 : currentImageIndex + 1 };
-        }
-      } else {
-        return prevIndices;
-      }
-    });
-  };
+  const { currentImageIndices, changeImage } = useProductImageSlider(releases);
 
   useEffect(() => {
     api

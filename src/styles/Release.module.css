@@ -52,12 +52,13 @@
   padding: 0 1.5rem;
   margin-top: .5rem;
   border-radius: 8rem;
+  font-size: .9rem;
 }
 
 .name {
   color: #FFF;
   position: absolute;
-  top: -30px;
+  top: -45px;
   font-size: .9rem;
 }
 
@@ -79,7 +80,7 @@
   left: -50px;
   text-align: left;
   border-radius: 0.5rem;
-  font-size: 1rem;
+  font-size: .9rem;
   padding-left: 0.5rem;
 }
 
