@@ -35,3 +35,27 @@ p {
   font-size: 1.5rem !important;
   color: gray;
 }
+
+@media(max-width: 759px) {
+  .swiper-button-prev {
+    margin-left: 8px;
+    background-color: #dbd4d4;
+    border-radius: 50%;
+    opacity: .7;
+    width: 28px !important;
+    height: 28px !important;
+  }
+  .swiper-button-next {
+    margin-right: 8px;
+    background-color: #dbd4d4;
+    border-radius: 50%;
+    opacity: .7;
+    width: 28px !important;
+    height: 28px !important;
+  }
+  .swiper-button-next:after, .swiper-button-prev:after {
+    font-size: 1rem !important;
+    color: gray;
+    text-align: center;
+  }
+}

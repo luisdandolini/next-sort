@@ -1,0 +1,52 @@
+.bg {
+  background-color: #3d3939;
+}
+
+.news {
+  color: #FFF;
+  padding-left: 3rem;
+}
+
+.text {
+  color: #FFF;
+  padding-left: 3rem;
+  padding-right: 2rem;
+  margin-top: 1rem;
+  font-size: .9rem;
+}
+
+.container_inputs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  gap: .2rem;
+}
+
+.container_inputs input {
+  border-radius: .3rem;
+  font-size: .9rem;
+  height: 28px;
+}
+
+.container_inputs button {
+  color: #FFF;
+  border: none;
+  background-color: green;
+  padding: .2rem .4rem;
+  border-radius: .3rem;
+  font-size: .9rem;
+}
+
+.name {
+  width: 100px;
+}
+
+.nets {
+  margin-top: 1rem;
+  padding-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}

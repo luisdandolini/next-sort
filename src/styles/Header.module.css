@@ -130,3 +130,14 @@
   border: none;
   position: relative;
 }
+
+@media(max-width: 769px) {
+  .title h1 {
+    font-size: 1.5rem;
+    margin-top: 1rem !important;
+  }
+  .title p {
+    font-size: 1.2rem;
+    margin-bottom: 1rem !important;
+  }
+}

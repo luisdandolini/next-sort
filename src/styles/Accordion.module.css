@@ -1,0 +1,29 @@
+.accordion {
+  margin-bottom: 1rem;
+  padding-right: 2rem;
+  color: #FFFFFF;
+}
+
+.accordion:first-child {
+  padding-top: 2rem;
+}
+
+.accordionHeader {
+  padding: 1rem 1rem 0 3rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  border-bottom: 1px solid;
+}
+
+.accordionIcon {
+  font-size: 1.2rem;
+}
+
+.accordionContent {
+  padding: 1rem;
+  border: 1px solid #f5f5f5;
+  border-top: none;
+}

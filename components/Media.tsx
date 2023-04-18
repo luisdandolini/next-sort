@@ -10,7 +10,7 @@ export default function Midia() {
   return(
     <section>
       <h1 className={styles.title}>Sort na mídia</h1>
-      <div className={styles.media}>
+      <div id={styles.id} className={styles.media}>
         <div className={styles.container_carousel}>
           <Swiper navigation={true} loop={true} modules={[Navigation]} className="mySwiper">
             <SwiperSlide>
@@ -23,7 +23,7 @@ export default function Midia() {
                     height={60}
                     className={styles.img}
                   />
-                  <p>Fast Sale é destaque na Forbes</p>
+                  <p className={styles.title_news}>Fast Sale é destaque na Forbes</p>
                   <p className={styles.text}>
                     A plataforma digital de venda de imóveis Fast Sale, idealizada pela Sort Investimentos, já é 
                     destaque na mídia nacional. Com previsão de lançamento para setembro de 2021.

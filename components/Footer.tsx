@@ -1,8 +1,22 @@
 import styles from '../src/styles/Footer.module.css'
 import Icon from '@mdi/react';
 import { mdiYoutube, mdiInstagram, mdiFacebook, mdiChartTimelineVariant, mdiMapMarker, mdiEmailNewsletter, mdiPhoneOutline, mdiWhatsapp, mdiAccountBox, mdiHome } from '@mdi/js';
+import { useMediaQuery } from 'react-responsive';
+import { useState, useEffect } from "react";
+import FooterMobile from './FooterMobile';
 
 export default function Footer() {
+  const [isMobile, setIsMobile] = useState(false);
+  const isMobileQuery = useMediaQuery({ query: `(max-width: 767px)` });
+
+  useEffect(() => {
+    setIsMobile(isMobileQuery);
+  }, [isMobileQuery]);
+
+  if (isMobile) {
+    return <FooterMobile />;
+  }
+
   return(
     <footer className={styles.footer}>
       <div className={styles.container}>

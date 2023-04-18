@@ -9,19 +9,27 @@ import Icon from '@mdi/react';
 import { mdiChevronLeft, mdiChevronRight } from '@mdi/js';
 import formatPrice from '../functions/formatPrice';
 import { useProductImageSlider } from '../functions/changeImage'
+import { useMediaQuery } from 'react-responsive';
+import ReleseaseMobile from "./ReleaseMobile";
+import { translateObjective } from "../functions/translateObjective";
+
 
 interface Release {
   id: any;
-  price: string;
   product_media: Array<{ url: string, position: number }>;
+  objective: string;
   image: string;
   name: string;
   zone: string;
   suites: number;
+  price: string;
   city: string;
 }
 
 export default function Release() {
+  const [isMobile, setIsMobile] = useState(false);
+  const isMobileQuery = useMediaQuery({ query: `(max-width: 767px)` });
+
   const [releases, setReleases] = useState<Release[]>([]);
   const { currentImageIndices, changeImage } = useProductImageSlider(releases);
 
@@ -31,9 +39,13 @@ export default function Release() {
       .then((response) => {
         console.log(response, 'RELEASE')
         const formattedData = response.data.map((item: Release) => {
-          const imageUrl = item.product_media && item.product_media[0] ? item.product_media[0].url : '';
+          const sortedMedia = item.product_media
+            .sort((a, b) => a.position - b.position)
+            .slice(0,3)
+          const imageUrl = sortedMedia && sortedMedia[0] ? sortedMedia[0].url : '';
           return {
             ...item,
+            product_media: sortedMedia,
             image: imageUrl,
           };
         });
@@ -54,6 +66,14 @@ export default function Release() {
       })
   }, []);
 
+  useEffect(() => {
+    setIsMobile(isMobileQuery);
+  }, [isMobileQuery]);
+
+  if (isMobile) {
+    return <ReleseaseMobile />;
+  }
+
   return (
     <section>
       <h1 className={styles.title}>Pré - Lançamentos</h1>
@@ -63,12 +83,10 @@ export default function Release() {
             <SwiperSlide key={release.id}>
               <div className={styles.opportunity}>
                 <div className={styles.carousel}>
-                  {release.product_media
-                    .sort((a, b) => a.position - b.position)
-                    .map((media, index) => (
+                  {release.product_media.map((media, index) => (
                       <div key={index} className={styles.carouselItem} style={{ display: index === (currentImageIndices[release.id] || 0) ? 'block' : 'none' }}>
                         <div className={styles.bg} style={{ backgroundImage: `url(${media.url})` }}>
-                          <p className={styles.sell}>Venda</p>
+                          <p className={styles.sell}>{translateObjective(release.objective)}</p>
                           <div className={styles.navigation}>
                             <div onClick={() => changeImage(release.id, "left")}>
                               <Icon path={mdiChevronLeft} size={1} className={styles.arrow}/>
