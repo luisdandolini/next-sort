@@ -7,6 +7,15 @@ import { useState, useEffect } from 'react';
 export default function SearchMobile() {
   const [index, setIndex] = useState(0);
   const words = ['Digite o nome do empreendimento', 'Buscar por código do imóvel'];
+  const [typing, setTyping] = useState(false);
+
+  const handleTyping = (e: any) => {
+    if (e.target.value === '') {
+      setTyping(false);
+    } else {
+      setTyping(true);
+    }
+  };
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -202,7 +211,12 @@ export default function SearchMobile() {
       />
       <div className={`${styles.input_text} ${styles.text_container}`}>
        <Icon path={mdiMagnify} size={1} color={'#116015'} className={styles.lupa}/>
-        <input className={styles.text_animation} type="text" placeholder={words[index]}/>
+      <input
+          className={`${styles.text_animation} ${typing ? styles.pause_animation : ''}`}
+          type="text"
+          placeholder={words[index]}
+          onChange={handleTyping}
+      />
       </div>
       <div className={styles.container_button}>
         <button className={styles.button}>

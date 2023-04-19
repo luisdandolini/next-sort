@@ -110,3 +110,7 @@
     width: 80%;
   }
 }
+
+.pause_animation {
+  animation-play-state: paused;
+}
