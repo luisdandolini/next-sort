@@ -4,12 +4,12 @@
 
 .news {
   color: #FFF;
-  padding-left: 3rem;
+  padding-left: 1rem;
 }
 
 .text {
   color: #FFF;
-  padding-left: 3rem;
+  padding-left: 1rem;
   padding-right: 2rem;
   margin-top: 1rem;
   font-size: .9rem;
@@ -17,10 +17,11 @@
 
 .container_inputs {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   margin-top: 1rem;
   gap: .2rem;
+  padding-left: 1rem;
 }
 
 .container_inputs input {

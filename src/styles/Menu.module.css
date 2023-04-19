@@ -1,9 +1,68 @@
-.container {
-  background-color: #FFFFFF;
-  opacity: .8;
-  padding: 0 2rem;
+.container_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  background-color: #FFF;
+  /* opacity: .7; */
 }
 
-.me_2 {
-  border: none;
+.logo {
+  margin-left: 3rem;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-right: 3rem;
+  cursor: pointer;
+}
+
+.details {
+  background-color: #000;
+  border-radius: 4px;
+  display: block;
+  height: 2px;
+  margin: 4px 0 4px -3px;
+  width: 22px;
+}
+
+.menu_itens {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  opacity: 1 !important;
+  background-color: #FFF;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  z-index: 100;
+}
+
+.links {
+  padding: .5rem 1rem;
+  margin-bottom: .5rem;
+}
+
+.links li {
+  list-style-type: none;
+  font-size: .9rem;
+  margin-bottom: .5rem;
+}
+
+.links li a {
+  text-decoration: none;
+  color: #000;
+}
+
+.links li a:hover {
+  color: #3e5e3f;
+}
+
+.close {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: .8rem;
+  margin-right: .8rem;
 }

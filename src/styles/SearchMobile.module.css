@@ -1,0 +1,111 @@
+.bg {
+  background-color: #F6F6F6;
+  /* padding-top: .5rem; */
+}
+
+.container_input {
+  display: flex;
+  flex-direction: column;
+  color: #00000051;
+}
+
+.input {
+  display: flex;
+  align-items: center;
+  margin-left: .5rem;
+  gap: .5rem;
+}
+
+.input_text {
+  height: 55px;
+}
+
+.input_text input {
+  border: none;
+  background-color: transparent;
+  padding-top: .9rem;
+  margin-left: 1.8rem;
+  width: 300px;
+}
+
+.input_text input::placeholder {
+  color: #0000008a;
+  width: max-content;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.input_text input[type=text]{
+  outline:none
+}
+
+.container_button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.button {
+  width: 335px;
+  height: 56px;
+  border: none;
+  border-radius: .5rem;
+  background-color: green;
+  color: #FFF;
+  font-size: 1.1rem;
+}
+
+.icon_location {
+  position: relative;
+  top: 16px;
+  left: 20px;
+}
+
+.icon_firstArrow {
+  position: relative;
+  top: 16px;
+  left: 20px;
+}
+
+.icon_secondArrow {
+  position: relative;
+  top: 16px;
+  left: 20px;
+}
+
+.icon_dollar {
+  position: relative;
+  top: 16px;
+  left: 20px;
+}
+
+.lupa {
+  position: relative;
+  top: 0px;
+  left: 20px;
+}
+
+.text_container {
+  font-family: 'Arial', sans-serif;
+  font-size: 1.5rem;
+  position: relative;
+}
+
+.text_animation {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typing 3s steps(50, end) infinite alternate;
+}
+
+@keyframes typing {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 80%;
+  }
+}
+

@@ -8,6 +8,7 @@ import Release from '../../components/Release'
 import Blog from '../../components/Blog'
 import Media from '../../components/Media'
 import Footer from '../../components/Footer'
+import Search from '../../components/Search'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -22,6 +23,7 @@ export default function Home() {
       </Head>
       <main>
         <Header />
+        <Search />
         <Opportunity />
         <Release />
         <Blog />
