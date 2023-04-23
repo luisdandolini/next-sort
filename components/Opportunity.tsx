@@ -69,7 +69,7 @@ export default function Opportunity() {
           {opportunities.map((opportunity) => (
             <SwiperSlide key={opportunity.id}> 
               <div className={styles.opportunity}>
-              <div className={styles.carousel}>
+                <div className={styles.carousel}>
                   {opportunity.product_media.map((media, index) => (
                       <div key={index} className={styles.carouselItem} style={{ display: index === (currentImageIndices[opportunity.id] || 0) ? 'block' : 'none' }}>
                         <div className={styles.bg} style={{ backgroundImage: `url(${media.url})` }}>

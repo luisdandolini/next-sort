@@ -1,0 +1,269 @@
+/* COUNT */
+
+.container_count {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  background-color: rgb(73, 73, 73);
+}
+
+.container_count p {
+  color: #FFF;
+  font-weight: 500;
+}
+
+
+.bg {
+  background-image: url('../../../public/background.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 700px;
+}
+
+.container_numbers {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+  padding-top: 8rem;
+}
+
+.numbers {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.number {
+  font-size: 4rem;
+  font-weight: 500;
+  color: #FFF;
+}
+
+.opportunity {
+  font-size: .9rem;
+  color: green;
+}
+
+.text {
+  max-width: 500px;
+  text-align: justify;
+}
+
+.container_opportunity {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 4rem;
+  gap: 20rem;
+}
+
+.teste {
+  display: flex;
+}
+
+/* .img {
+  position: relative;
+  right: 400px;
+  border-radius: .5rem;
+}
+
+.bg_details {
+  background-color: gray;
+  height: 150px;
+  width: 300px;
+  border-radius: .5rem;
+
+} */
+
+
+/* LOGÍSTICA */
+
+.container_logistics h2 {
+  text-align: center;
+  margin-top: 8rem;
+}
+
+.container_about {
+  display: flex;
+  justify-content: center;
+  gap: 5rem;
+  margin-top: 8rem;
+}
+
+.text_about {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: flex-start;
+}
+
+.text_about p {
+  max-width: 400px;
+  font-size: 1.5rem;
+  font-weight: 500;
+  padding-bottom: 1rem;
+}
+
+.text_about a {
+  color: green;
+  font-size: .9rem;
+  padding-bottom: 3rem;
+}
+
+.text_about button {
+  background-color: #116015;
+  color: #FFF;
+  border: none;
+  padding: .2rem .5rem;
+  border-radius: .2rem;
+}
+
+.img_about {
+  border-radius: .5rem;
+}
+
+.container_opportunity_sell {
+  text-align: center;
+  margin-top: 12rem;
+}
+
+/* CAROUSEL */
+
+.container_carousel {
+  max-width: 1150px;
+  margin: auto;
+  padding-top: 4rem;
+}
+
+.opportunity_sell {
+  height: 400px;
+  width: 300px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  margin-left: 2.8rem;
+  border-radius: .5rem;
+}
+
+.opportunity{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+.bg_opportunity {
+  background-image: url('../../../public/background.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 300px;
+  height: 180px;
+  border-radius: .5rem .5rem 0 0;
+}
+
+.opportunity_name {
+  text-align: left;
+  padding: 1rem 0 1rem 1rem;
+}
+
+.opportunity_config {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.opportunity_location,
+.opportunity_meters {
+  padding-left: 1rem;
+  padding-bottom: .5rem;
+}
+
+.opportunity_price {
+  display: flex;
+  gap: 2rem;
+  padding-top: 1rem;
+}
+
+.price {
+  background-color: #116015;
+  color: #FFF;
+  padding: .2rem 1rem;
+  border-radius: .3rem;
+  font-weight: 600;
+
+  position: relative;
+  right: 15px;
+}
+
+.view {
+  background-color: orange;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFF;
+  font-size: .7rem;
+  padding: .2rem .5rem;
+  border-radius: .3rem;
+}
+
+.container_opportunity_sell button {
+  background-color: #116015;
+  color: #FFF;
+  border: none;
+  padding: .2rem 2rem;
+  border-radius: .3rem;
+}
+
+/* LOCATION */
+
+.container_opportunity_location {
+  margin-top: 8rem;
+  text-align: center;
+}
+
+.container_opportunity_location button {
+  background-color: #116015;
+  color: #FFF;
+  border: none;
+  padding: .2rem 2rem;
+  border-radius: .3rem;
+}
+
+/* PAUTA */
+
+.button_pauta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 8rem;
+  margin-bottom: 8rem;
+}
+
+.pauta {
+  border: 1px solid #116015;
+  border-radius: .5rem;
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  padding: 2rem 4rem;
+}
+
+.pauta p {
+  font-size: 1.2rem;
+  width: 200px;
+}
+
+.pauta button {
+  background-color: #116015;
+  color: #FFF;
+  padding: .5rem 2rem;
+  border: none;
+  border-radius: .5rem;
+  font-size: .9rem;
+  font-weight: 300;
+}

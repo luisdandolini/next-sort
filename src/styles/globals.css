@@ -24,6 +24,10 @@ p {
 
 /* SWIPER */
 
+.swiper-wrapper {
+  height: 450px !important;
+}
+
 .swiper-button-prev {
   left: -1px !important;
   position: absolute !important;

@@ -8,10 +8,6 @@
   cursor: pointer;
 }
 
-.opportunity:hover {
-  height: 110%;
-}
-
 .container_carousel {
   max-width: 1150px;
   margin: auto;

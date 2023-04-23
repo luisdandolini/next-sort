@@ -1,0 +1,30 @@
+.container_menu {
+  padding-top: 1.5rem;
+}
+
+.bg {
+  background-image: url('../../../public/background.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 700px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 12rem 0 12rem 4rem;
+}
+
+.container h1 {
+  color: #FFF;
+  margin-bottom: 1rem;
+}
+
+.container button {
+  background-color: rgb(0, 93, 0);
+  color: #FFF;
+  border: none;
+  padding: .5rem 1rem;
+}
