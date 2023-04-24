@@ -84,7 +84,7 @@ export default function About() {
               am debitis cum suscipit quisquam tempore ab voluptates cumque. Unde?
             </p>
           </div>
-          <div className={styles.teste}>
+          <div>
             <div className={styles.bg_details}></div>
             <Image 
               src={'/background.jpg'}

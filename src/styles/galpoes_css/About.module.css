@@ -82,14 +82,14 @@
   gap: 20rem;
 }
 
-.teste {
-  display: flex;
+.container_opportunity h2 {
+  margin-bottom: 1rem;
 }
 
 /* .img {
   position: relative;
   right: 400px;
-  border-radius: .5rem;
+  border-raditesteus: .5rem;
 }
 
 .bg_details {
