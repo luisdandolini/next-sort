@@ -5,25 +5,57 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper";
+import Icon from '@mdi/react';
+import { mdiArrowUp, mdiArrowDown } from '@mdi/js';
+import { fetchIfix } from '../../services/ifix';
+import { fetchBrco11 } from '../../services/brco'
 
 export default function About() {
-  // const [ifixValue, setIfixValue] = useState(null);
+  const [ifix, setIfix] = useState<number | null>(null);
+  const [brco11, setBrco11] = useState<number | null>(null);
+  const [ifixVariation, setIfixVariation] = useState<number | null>(null);
+  const [brco11Variation, setBrco11Variation] = useState<number | null>(null);
 
-  // useEffect(() => {
-  //   async function fetchData() {
-  //     const response = await fetch('https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=IFIX11.SAO&apikey=LQCIT1QDVJVJ0KCG');
-  //     const data = await response.json();
-  //     setIfixValue(data['Global Quote']['05. price']);
-  //   }
+  useEffect(() => {
+    fetchIfix().then((data) => {
+        setIfix(data.value);
+        setIfixVariation(data.variation);
+    });
 
-  //   fetchData();
-  // }, []);
+    fetchBrco11().then((data) => {
+      setBrco11(data.value);
+      setBrco11Variation(data.variation);
+    });
+  }, []);
 
   return (
     <section>
       <div className={styles.container_count}>
-        {/* <p>Cotação IFIX: {ifixValue}</p> */}
-        <p>Cotação IFIX: 0</p>
+        <p>Cotações</p>
+        <p className={styles.values}>
+          IFIX: 
+          <span className={styles.value}>
+            {ifixVariation !== null && (ifixVariation > 0 ? <Icon path={mdiArrowUp} size={.9} color={'#25db25'} /> : <Icon path={mdiArrowDown} size={.9} color={'#ff0000'} />)}
+            {ifix}
+
+            <span className={styles.percentage}>
+            {ifixVariation !== null && (ifixVariation > 0 ? '+' : '-')}
+            {ifixVariation !== null && <span className={ifixVariation > 0 ? styles.variationUp : styles.variationDown}>{ifixVariation.toFixed(2)}%</span>}
+            </span>
+          </span>
+        </p>
+        <p className={styles.values}>
+          BRCO11: 
+          <span className={styles.value}>
+            {brco11Variation !== null && (brco11Variation > 0 ? <Icon path={mdiArrowUp} size={.9} color={'#25db25'} /> : <Icon path={mdiArrowDown} size={.9} color={'#ff0000'} />)}
+            {brco11}
+
+            <span className={styles.percentage}>
+            {brco11Variation !== null && (brco11Variation > 0 ? '+' : '-')}
+            {brco11Variation !== null && <span className={brco11Variation > 0 ? styles.variationUp : styles.variationDown}>{brco11Variation.toFixed(2)}%</span>}
+            </span>
+          </span>
+        </p>
       </div>
 
       <div className={styles.bg}>
