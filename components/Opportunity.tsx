@@ -37,7 +37,6 @@ export default function Opportunity() {
     api
       .get('/guest/products-best')
       .then((response) => {
-        console.log(response);
         const formattedData = response.data.map((item: Opportunity) => {
           const sortedMedia = item.product_media
             .sort((a, b) => a.position - b.position)

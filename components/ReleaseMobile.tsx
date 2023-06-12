@@ -32,7 +32,6 @@ const ReleseaseMobile = () => {
     api
       .get('/guest/products-status')
       .then((response) => {
-        console.log(response, 'RELEASE')
         const formattedData = response.data.map((item: Release) => {
           const sortedMedia = item.product_media
             .sort((a, b) => a.position - b.position)

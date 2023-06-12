@@ -59,7 +59,6 @@ export const fetchBrco11 = async () => {
     return result;
   } catch (error) {
     console.error('Erro ao buscar o BRCO11:', error);
-    console.log(callCountBrco11)
     return { value: null, variation: null };
   }
 };
