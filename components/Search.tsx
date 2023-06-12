@@ -70,7 +70,7 @@ export default function Search() {
       <div className={styles.container_inputs}>
         <div onMouseLeave={handleMouseLeaveLocation}>
           <button onClick={handleButtonLocation} className={`${styles.options_button}  ${showOptionsLocation ? styles.first : styles.first_active}`}>
-            <span><Icon path={mdiMapMarker} size={.9} color={'#116015'}/></span> Qual a localização?
+            <span style={{display: 'flex', alignItems: 'center'}}><Icon path={mdiMapMarker} size={.8} color={'#116015'}/></span> Qual a localização?
           </button>
           {showOptionsLocation && (
             <div className={styles.options_container}>
@@ -88,7 +88,7 @@ export default function Search() {
         </div>
         <div onMouseLeave={handleMouseLeaveLocation}>
           <button onClick={handleButtonType} className={styles.options_button}>
-            Tipo do imóvel <span><Icon path={mdiSwapVertical} size={.9} color={'#116015'}/></span>
+            Tipo do imóvel <span style={{display: 'flex', alignItems: 'center'}}><Icon path={mdiSwapVertical} size={.9} color={'#116015'}/></span>
           </button>
           {showOptionsType && (
             <div className={styles.options_container}>
@@ -109,7 +109,7 @@ export default function Search() {
         </div>
         <div onMouseLeave={handleMouseLeaveLocation}>
           <button onClick={handleButtonStatus} className={styles.options_button}>
-            Status do imóvel <span><Icon path={mdiSwapVertical} size={.9} color={'#116015'}/></span>
+            Status do imóvel <span style={{display: 'flex', alignItems: 'center'}}><Icon path={mdiSwapVertical} size={.9} color={'#116015'}/></span>
           </button>
           {showOptionsStatus && (
             <div className={styles.options_container}>
@@ -130,7 +130,7 @@ export default function Search() {
         </div>
         <div onMouseLeave={handleMouseLeaveLocation}>
           <button onClick={handleButtonValue} className={styles.options_button}>
-          <span><Icon path={mdiCurrencyUsd} size={.9} color={'#116015'}/></span> Valor aproximado 
+          <span style={{display: 'flex', alignItems: 'center'}}><Icon path={mdiCurrencyUsd} size={.9} color={'#116015'}/></span> Valor aproximado 
           </button>
           {showValue && (
             <div className={styles.options_container}>

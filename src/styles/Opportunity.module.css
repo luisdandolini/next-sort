@@ -27,7 +27,7 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  height: 350px;
+  height: 300px;
   width: 320px;
   border-radius: 1rem 1rem 0 0;
   margin-left: .4rem;
@@ -43,7 +43,7 @@
 }
 
 .sell {
-  background-color: green;
+  background-color: #2f734c;
   color: #FFF;
   padding: 0 1.5rem;
   margin-top: .5rem;
@@ -54,7 +54,7 @@
 .name {
   color: #FFF;
   position: absolute;
-  top: -45px;
+  top: -130px;
   font-size: .9rem;
 }
 
@@ -64,16 +64,20 @@
   margin-right: 8rem;
   font-size: .8rem;
   color: #FFF;
+  position: relative;
+  top: -106px;
+  left: 18px;
 }
 
 .price {
-  background-color: green;
+  background-color: #2f734c;
   color: #FFF;
   margin: .5rem auto 0 0;
   padding: 0.2rem 0;
   width: 160px;
   position: relative;
   left: -50px;
+  top: -102px;
   text-align: left;
   border-radius: 0.5rem;
   font-size: .9rem;
@@ -93,6 +97,12 @@
   color: #FFF;
 }
 
+.icon_location {
+  display: flex;
+  align-items: center;
+  gap: .3rem;
+}
+
 .view {
   background-color: orange;
   padding: .1rem 1rem;
@@ -105,7 +115,7 @@
   justify-content: space-between;
   gap: 14rem;
   position: relative;
-  top: 155px;
+  top: 114px;
 }
 
 .arrow {

@@ -28,7 +28,7 @@
 
 .objective p {
   margin-top: .5rem;
-  background-color: green;
+  background-color: #2f734c;
   padding: 0 1.5rem;
   border-radius: 1rem;
   font-size: .9rem;
@@ -54,7 +54,7 @@
 }
 
 .price_immobile {
-  background-color: green;
+  background-color: #2f734c;
   width: 150px;
   color: #FFFFFF;
   margin-top: 1rem;

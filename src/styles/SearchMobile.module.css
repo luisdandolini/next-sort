@@ -52,38 +52,38 @@
   height: 56px;
   border: none;
   border-radius: .5rem;
-  background-color: green;
+  background-color: #2f734c;
   color: #FFF;
   font-size: 1.1rem;
 }
 
 .icon_location {
   position: relative;
-  top: 16px;
+  top: 22px;
   left: 20px;
 }
 
 .icon_firstArrow {
   position: relative;
-  top: 16px;
+  top: 22px;
   left: 20px;
 }
 
 .icon_secondArrow {
   position: relative;
-  top: 16px;
+  top: 22px;
   left: 20px;
 }
 
 .icon_dollar {
   position: relative;
-  top: 16px;
+  top: 22px;
   left: 20px;
 }
 
 .lupa {
   position: relative;
-  top: 0px;
+  top: 8px;
   left: 20px;
 }
 

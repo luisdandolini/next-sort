@@ -12,6 +12,7 @@ import { useProductImageSlider } from '../functions/changeImage'
 import { useMediaQuery } from 'react-responsive';
 import OpportunityMobile from './OpportunityMobile';
 import { translateObjective } from "../functions/translateObjective";
+import { mdiMapMarker } from '@mdi/js';
 
 
 interface Opportunity {
@@ -94,7 +95,8 @@ export default function Opportunity() {
                     ))}
                 </div>
                 <div className={styles.location}>
-                  <span>{opportunity.city}</span> <span className={styles.view}>Ver imóvel</span>
+                  <span className={styles.icon_location}><Icon path={mdiMapMarker} size={.7} color={'#116015'}/>{opportunity.city}</span> 
+                  <span className={styles.view}>Ver imóvel</span>
                 </div>
               </div>
             </SwiperSlide>

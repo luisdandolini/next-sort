@@ -31,11 +31,13 @@ p {
 .swiper-button-prev {
   left: -1px !important;
   position: absolute !important;
+  top: 180px !important
 }
 
 .swiper-button-next {
   right: -4px !important;
   position: absolute !important;
+  top: 180px !important
 }
 
 .swiper-button-next:after, .swiper-button-prev:after {

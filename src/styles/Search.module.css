@@ -18,6 +18,10 @@
   cursor: pointer;
   font-size: .9rem;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: .3rem;
 }
 
 .options_container {
@@ -65,7 +69,7 @@
   height: 56px;
   width: 94px;
   color: #FFF;
-  background-color: green;
+  background-color: #2f734c;
   border-radius: .5rem;
   border: none;
   position: relative;

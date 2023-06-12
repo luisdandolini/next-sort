@@ -12,7 +12,7 @@ import { useProductImageSlider } from '../functions/changeImage'
 import { useMediaQuery } from 'react-responsive';
 import ReleseaseMobile from "./ReleaseMobile";
 import { translateObjective } from "../functions/translateObjective";
-
+import { mdiMapMarker } from '@mdi/js';
 
 interface Release {
   id: any;
@@ -107,7 +107,8 @@ export default function Release() {
                     ))}
                 </div>
                 <div className={styles.location}>
-                  <span>{release.city}</span> <span className={styles.view}>Ver imóvel</span>
+                  <span className={styles.icon_location}><Icon path={mdiMapMarker} size={.7} color={'#116015'}/>{release.city}</span> 
+                  <span className={styles.view}>Ver imóvel</span>
                 </div>
               </div>
             </SwiperSlide>
