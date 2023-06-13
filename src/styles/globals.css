@@ -28,6 +28,10 @@ p {
   height: 450px !important;
 }
 
+#imovel .swiper-wrapper {
+  height: 850px !important;
+}
+
 .swiper-button-prev {
   left: -1px !important;
   position: absolute !important;

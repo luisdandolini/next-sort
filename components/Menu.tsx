@@ -12,11 +12,11 @@ function Menu() {
   return (
     <div className={styles.container_header}>
       <Image 
-       width={80}
-       height={32}
-       alt='Logo SORT'
-       src={'/logosort.png'}
-       className={styles.logo}
+        width={80}
+        height={32}
+        alt='Logo SORT'
+        src={'/logosort.png'}
+        className={styles.logo}
       /> 
       <div className={styles.menu}>
         <div onClick={handleToggle} className={styles.toggle}>
