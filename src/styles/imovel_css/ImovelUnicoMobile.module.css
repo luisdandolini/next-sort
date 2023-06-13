@@ -1,0 +1,110 @@
+.img {
+  background-image: url('../../../public/background.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 350px !important;
+  width: 100%;
+  border-radius: .5rem;
+}
+
+.container_content {
+  margin-top: -4.5rem;
+  padding: 0 1.5rem;
+}
+
+.imobile_name {
+  font-weight: 600;
+  font-size: .95rem;
+  margin: .5rem 0;
+}
+
+.imobile_location {
+  display: flex;
+  gap: .5rem;
+  margin-top: 1.5rem;
+}
+
+.imobile_price {
+  text-align: center;
+  margin-top: 1rem;
+  border: 1px solid #000;
+  border-radius: 2rem;
+  padding: .1rem .5rem;
+  width: 200px;
+  font-weight: 600;
+}
+
+.imobile_price span {
+  font-size: 1.5rem;
+}
+
+.imobile_config {
+  display: flex;
+  margin-top: 2rem;
+  gap: 1rem;
+}
+
+.imobile_config p {
+  display: flex;
+  gap: .2rem;
+  font-size: .9rem;
+}
+
+.container_description {
+  margin-top: 2rem;
+  border: 1px solid #c3c3c3;
+  padding: .5rem 1.5rem;
+  border-radius: .5rem;
+  margin-bottom: 2rem;
+  cursor: pointer;
+}
+
+.tooltip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tooltip p {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.container_map {
+  font-weight: 600;
+}
+
+.map {
+  margin-top: .5rem;
+  background-color: aquamarine;
+  width: 100%;
+  height: 260px;
+  border-radius: .5rem;
+}
+
+.container_buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #e4e4e4;
+  margin-top: 5rem;
+  padding: 1rem 0;
+  gap: 1rem;
+}
+
+.container_buttons button:first-child {
+  background-color: rgb(234, 153, 4);
+  border: none;
+  padding: .3rem 1rem;
+  border-radius: .3rem;
+  color: #fff;
+}
+
+.container_buttons button:last-child{
+  background-color: #2f734c;
+  border: none;
+  padding: .3rem 1rem;
+  border-radius: .3rem;
+  color: #fff;
+}
