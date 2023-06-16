@@ -120,3 +120,44 @@
   font-size: 1.2rem;
   font-weight: 600;
 }
+
+.valuation {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #c3c3c3;
+  background-color: #f1f1f1;
+  border-radius: .5rem;
+  margin-top: 3rem;
+  padding: 2rem 3rem;
+}
+
+.simulation {
+  text-align: center;
+  font-weight: 600;
+}
+
+.continer_pricce {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.continer_pricce p {
+  cursor: pointer;
+}
+
+.selected {
+  border: 1px solid #c3c3c3;
+  padding: .3rem;
+  border-radius: .5rem;
+}
+
+.price_value {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  border: 1px solid #c3c3c3;
+  border-radius: .5rem;
+}

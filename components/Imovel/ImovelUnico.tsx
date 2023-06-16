@@ -15,10 +15,14 @@ export default function ImovelUnico() {
   const [openDescription, setOpenDescription] = useState(false);
   const [openInfoAp, setOpenInfoAp] = useState(false);
   const [openInfoEmp, setOpenInfoEmp] = useState(false);
+  const [selectedYears, setSelectedYears] = useState(3);
 
   const handleToggleDescription = () => setOpenDescription(!openDescription);
   const handleToggleAp = () => setOpenInfoAp(!openInfoAp);
   const handleToggleEmp = () => setOpenInfoEmp(!openInfoEmp);
+  const handleSelectYears = (years: any) => {
+    setSelectedYears(years);
+  };
 
   useEffect(() => {
     setIsMobile(isMobileQuery);
@@ -89,11 +93,33 @@ export default function ImovelUnico() {
           </div>
 
           <div>
-            <div className={styles.imobile_price}>
-              <p className={styles.price}>R$ <span>3.900.000,00</span></p>
-              <p>Condições de pagamento</p>
-              <button className={styles.information}>Quero mais informações</button>
-              <button className={styles.doubts}>Tirar dúvidas</button>
+            <div>
+              <div className={styles.imobile_price}>
+                <p className={styles.price}>R$ <span>3.900.000,00</span></p>
+                <p>Condições de pagamento</p>
+                <button className={styles.information}>Quero mais informações</button>
+                <button className={styles.doubts}>Tirar dúvidas</button>
+              </div>
+            </div>
+
+            <div>
+              <div className={styles.valuation}>
+                <p className={styles.simulation}>Simulação de Valorização</p>
+                <div className={styles.continer_pricce}>
+                  <div onClick={() => handleSelectYears(3)}>
+                    <p className={selectedYears === 3 ? styles.selected : ''}>3 anos</p>
+                  </div>
+                  <div onClick={() => handleSelectYears(5)}>
+                    <p className={selectedYears === 5 ? styles.selected : ''}>5 anos</p>
+                  </div>
+                  <div onClick={() => handleSelectYears(10)}>
+                    <p className={selectedYears === 10 ? styles.selected : ''}>10 anos</p>
+                  </div>
+                </div>
+                <div className={styles.price_value}>
+                  R$ {selectedYears * 1_000_000}
+                </div>
+              </div>
             </div>
           </div>
         </div>
