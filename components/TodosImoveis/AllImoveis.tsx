@@ -6,6 +6,7 @@ import { mdiChevronLeft, mdiChevronRight, mdiMapMarker } from '@mdi/js';
 import { useProductImageSlider } from '../../functions/changeImage';
 import { translateObjective } from "../../functions/translateObjective";
 import formatPrice from "../../functions/formatPrice";
+import { createTheme, Pagination, ThemeProvider } from '@mui/material';
 
 interface AllImoveis {
   id: any;
@@ -25,11 +26,21 @@ export default function AllImoveis() {
   const [allImoveis, setAllImoveis] = useState<AllImoveis[]>([]);
   const { currentImageIndices, changeImage } = useProductImageSlider(allImoveis);
   const [page, setPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(0);
+  const theme = createTheme({
+    palette: {
+        primary: {
+            main: '#3E5E3F',
+            contrastText: '#fff',
+        },
+    },
+});
 
   useEffect(() => {
     api
     .get(`/property-paginate?page=${page}`)
     .then((response) => {
+        console.log(response.data)
         const formattedData = response.data.data.map((item: AllImoveis) => {
           const sortedMedia = item.media
             ? item.media.sort((a: any, b: any) => a.position - b.position)
@@ -42,6 +53,7 @@ export default function AllImoveis() {
           };
         });
         setAllImoveis(formattedData);
+        setTotalPages(response.data.total_pages);
       });
   }, [page]);
 
@@ -85,8 +97,20 @@ export default function AllImoveis() {
             </div>
           </div>
         ))}
-        <button onClick={() => setPage(page => page - 1)}>Página Anterior</button> 
-        <button onClick={() => setPage(page => page + 1)}>Próxima Página</button> 
+      </div>
+      <div style={{display: 'flex', width: '100%', justifyContent: 'center'}}>
+        <ThemeProvider theme={theme}>
+          <Pagination
+            count={totalPages} 
+            color="primary"
+            size="small" 
+            page={page}
+            style={{margin:'20px 0', display:'flex', justifyContent:'flex-end'}}
+            onChange={(event, value) => {
+                setPage(value); 
+            }}
+          />
+        </ThemeProvider>
       </div>
     </section>
   ) 
