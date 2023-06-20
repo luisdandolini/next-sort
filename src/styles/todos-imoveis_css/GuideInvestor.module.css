@@ -1,0 +1,30 @@
+.container_guide {
+  margin-top: 6rem;
+  background-color: #ccc;
+  padding: 4rem 10rem;
+}
+
+.guide {
+  font-weight: 300;
+  font-size: 1.2rem;
+}
+
+.download {
+  margin-top: 2rem;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.title {
+  color: #2f734c;
+  font-size: 2rem;
+}
+
+.button {
+  margin-top: 2rem;
+  background-color: #2f734c;
+  color: #FFF;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: .3rem;
+}
