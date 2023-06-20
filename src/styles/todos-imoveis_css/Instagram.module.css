@@ -1,0 +1,79 @@
+.title {
+  margin-top: 6rem;
+  margin-bottom: -1rem;
+  text-align: center;
+  font-size: 2rem;
+}
+
+.instagram_content{
+  width: 100%;
+  padding: 50px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.instagram_content h1{
+  margin-bottom: 40px;
+  font-size: 2rem;
+}
+
+.instagram_content h1 span{
+  font-weight: bold;
+}
+
+.instagram_content .insta_grid{
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  cursor: pointer;
+}
+
+.instagram_content .insta_grid .insta_card:hover .hovered_card{
+  transition: .3s;
+  background-color: rgba(0, 0, 0, 0.744);
+}
+
+.instagram_content .insta_grid .insta_card .hovered_card{
+  width: 100%;
+  height: 100%;
+  background-color: unset;
+  display: flex;
+  transition: .3s;
+  justify-content: center;
+  align-items: center;
+}
+
+.instagram_content .insta_grid .insta_card:hover .hovered_card p{
+  color: white;
+  max-width: 200px;
+  opacity: 1;
+  transform: translateY(0%);
+  transition: .3s;
+}
+
+.instagram_content .insta_grid .insta_card .hovered_card p{
+  opacity: 0;
+  display: flex;
+  max-width: 200px;
+  transition: .3s;
+  transform: translateY(34%);
+}
+
+.instagram_content .insta_grid .mySwiper{
+  max-width: 401px!important;
+  width: 100%;
+}
+
+.instagram_content .swiper {
+  width: 350px !important;
+}
+
+.play_instagram {
+  background-image: url('../../../public/iconplay.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 80px;
+  height: 80px;
+}
