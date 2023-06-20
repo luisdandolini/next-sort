@@ -6,13 +6,12 @@ import { Navigation } from "swiper";
 import styles from "../src/styles/Release.module.css";
 import api from "../services/api";
 import Icon from '@mdi/react';
-import { mdiChevronLeft, mdiChevronRight } from '@mdi/js';
+import { mdiChevronLeft, mdiChevronRight, mdiMapMarker } from '@mdi/js';
 import formatPrice from '../functions/formatPrice';
 import { useProductImageSlider } from '../functions/changeImage'
 import { useMediaQuery } from 'react-responsive';
 import ReleseaseMobile from "./ReleaseMobile";
 import { translateObjective } from "../functions/translateObjective";
-import { mdiMapMarker } from '@mdi/js';
 
 interface Release {
   id: any;
