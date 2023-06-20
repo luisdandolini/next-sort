@@ -32,7 +32,7 @@ const OpportunityMobile = () => {
 
   useEffect(() => {
     api
-      .get('/opportunity')
+      .get('/best-property')
       .then((response) => {
         const formattedData = (Object.values(response.data) as Opportunity[]).map((item: Opportunity) => {
           const sortedMedia = item.media

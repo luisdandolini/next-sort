@@ -31,7 +31,7 @@ const ReleseaseMobile = () => {
 
   useEffect(() => {
     api
-      .get('/best-property')
+      .get('/opportunity')
       .then((response) => {
         const formattedData = (Object.values(response.data) as Release[]).map((item: Release) => {
           const sortedMedia = item.media
