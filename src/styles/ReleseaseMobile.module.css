@@ -72,9 +72,8 @@
 
 .location_immobile {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  gap: 2rem;
   background-color: rgb(82, 80, 80);
   height: 57px;
   border-radius: 0 0 1rem 1rem;
@@ -82,10 +81,18 @@
   font-size: .7rem;
 } 
 
+.location_immobile span {
+  display: flex;
+  align-items: center;
+  gap: .2rem;
+  margin-left: .5rem;
+}
+
 .view_immobile {
   background-color: orange;
-  padding: .2rem 1.5rem;
-  border-radius: .5rem;
+  padding: 0.2rem 0.8rem;
+  border-radius: 0.5rem;
+  margin-right: 0.5rem;
 }
 
 .inactiveSlide {
@@ -110,5 +117,5 @@
 
 .container_price_immobile {
   position: relative;
-  top: -5px;
+  top: -24px;
 }

@@ -7,7 +7,7 @@ import api from "../services/api";
 import { useProductImageSlider } from '../functions/changeImage';
 import formatPrice from '../functions/formatPrice';
 import Icon from '@mdi/react';
-import { mdiChevronLeft, mdiChevronRight } from '@mdi/js';
+import { mdiChevronLeft, mdiChevronRight, mdiMapMarker } from '@mdi/js';
 import { translateObjective } from "../functions/translateObjective";
 
 interface Release {
@@ -15,11 +15,12 @@ interface Release {
   product_media: Array<{ url: string, position: number }>;
   objective: string;
   image: string;
-  name: string;
+  title: string;
   zone: string;
   suites: number;
   price: string;
   city: string;
+  media: any;
 }
 
 const ReleseaseMobile = () => {
@@ -30,12 +31,11 @@ const ReleseaseMobile = () => {
 
   useEffect(() => {
     api
-      .get('/guest/products-status')
+      .get('/best-property')
       .then((response) => {
-        const formattedData = response.data.map((item: Release) => {
-          const sortedMedia = item.product_media
-            .sort((a, b) => a.position - b.position)
-            .slice(0, 3); 
+        const formattedData = (Object.values(response.data) as Release[]).map((item: Release) => {
+          const sortedMedia = item.media
+            .sort((a: any, b: any) => a.position - b.position)
           const imageUrl = sortedMedia && sortedMedia[0] ? sortedMedia[0].url : '';
           return {
             ...item,
@@ -44,20 +44,7 @@ const ReleseaseMobile = () => {
           };
         });
         setReleases(formattedData);
-      })
-      .catch((error) => {
-        if (error.response && error.response.status === 429) {
-          setTimeout(() => {
-            api.get('/guest/products-status')
-              .then((response) => {
-                setReleases(response.data)
-              })
-              .catch((error) => {
-                console.log(error)
-              })
-          }, 5000) 
-        }
-      })
+      });
   }, []);
   
   const settings = {
@@ -102,7 +89,7 @@ const ReleseaseMobile = () => {
                 </div>
               </div>
               <div className={styles.config_immobile}>
-                <p>{release.name}</p>
+                <p>{release.title}</p>
                 <span>{release.zone} úteis</span> <span>{release.suites} Suítes</span>
               </div>
               <div className={styles.container_price_immobile}>
@@ -110,7 +97,7 @@ const ReleseaseMobile = () => {
                   <p>{formatPrice(release.price)}</p>
                 </div>
                 <div className={styles.location_immobile}>
-                  <span>{release.city}</span>
+                  <span><Icon path={mdiMapMarker} size={.7} color={'#116015'}/>{release.city}</span>
                   <span className={styles.view_immobile}>Ver imóvel</span>
                 </div>
               </div>

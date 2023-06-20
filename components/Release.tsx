@@ -19,11 +19,12 @@ interface Release {
   product_media: Array<{ url: string, position: number }>;
   objective: string;
   image: string;
-  name: string;
+  title: string;
   zone: string;
   suites: number;
   price: string;
   city: string;
+  media: any;
 }
 
 export default function Release() {
@@ -35,12 +36,11 @@ export default function Release() {
 
   useEffect(() => {
     api
-      .get('/guest/products-status')
+      .get('/best-property')
       .then((response) => {
-        const formattedData = response.data.map((item: Release) => {
-          const sortedMedia = item.product_media
-            .sort((a, b) => a.position - b.position)
-            .slice(0,3)
+        const formattedData = (Object.values(response.data) as Release[]).map((item: Release) => {
+          const sortedMedia = item.media
+            .sort((a: any, b: any) => a.position - b.position)
           const imageUrl = sortedMedia && sortedMedia[0] ? sortedMedia[0].url : '';
           return {
             ...item,
@@ -49,20 +49,7 @@ export default function Release() {
           };
         });
         setReleases(formattedData);
-      })
-      .catch((error) => {
-        if (error.response && error.response.status === 429) {
-          setTimeout(() => {
-            api.get('/guest/products-status')
-              .then((response) => {
-                setReleases(response.data)
-              })
-              .catch((error) => {
-                console.log(error)
-              })
-          }, 5000) 
-        }
-      })
+      });
   }, []);
 
   useEffect(() => {
@@ -95,7 +82,7 @@ export default function Release() {
                             </div>
                           </div>
                           <div className={styles.container_mobile}>
-                            <p className={styles.name}>{release.name}</p> 
+                            <p className={styles.name}>{release.title}</p> 
                             <div className={styles.config}>
                               <span> {release.zone} úteis</span> 
                               <span>{release.suites} Suítes</span> 
