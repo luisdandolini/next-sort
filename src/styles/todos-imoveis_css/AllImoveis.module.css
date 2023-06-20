@@ -1,6 +1,8 @@
 .title {
   margin-top: 6rem;
+  margin-bottom: 2rem;
   text-align: center;
+  font-size: 2rem;
 }
 
 .opportunity {
@@ -15,7 +17,7 @@
 .gridContainer {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1rem;
+  gap: 3rem;
   max-width: 1150px;
   margin: auto;
 }
@@ -23,13 +25,6 @@
 .container_carousel {
   max-width: 1150px;
   margin: auto;
-}
-
-.title {
-  margin-top: 2rem;
-  margin-left: 10rem;
-  margin-bottom: 2rem;
-  font-size: 2rem;
 }
 
 .bg {

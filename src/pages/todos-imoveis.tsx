@@ -3,6 +3,8 @@ import { Inter } from 'next/font/google'
 import Header from '../../components/Header'
 import Search from '../../components/Search'
 import AllImoveis from '../../components/TodosImoveis/AllImoveis'
+import GuideInvestor from '../../components/TodosImoveis/GuideInvestor'
+import Instagram from '../../components/TodosImoveis/Instagram'
 
 export default function TodosImoveis() {
   return(
@@ -17,6 +19,8 @@ export default function TodosImoveis() {
         <Header />
         <Search />
         <AllImoveis />
+        <GuideInvestor />
+        <Instagram />
       </main>
     </>
   )
