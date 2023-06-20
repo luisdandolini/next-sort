@@ -7,7 +7,7 @@ import api from "../services/api";
 import { useProductImageSlider } from '../functions/changeImage';
 import formatPrice from '../functions/formatPrice';
 import Icon from '@mdi/react';
-import { mdiChevronLeft, mdiChevronRight } from '@mdi/js';
+import { mdiChevronLeft, mdiChevronRight, mdiMapMarker } from '@mdi/js';
 import { translateObjective } from "../functions/translateObjective";
 
 interface Opportunity {
@@ -15,11 +15,12 @@ interface Opportunity {
   product_media: Array<{ url: string, position: number }>;
   objective: string;
   image: string;
-  name: string;
+  title: string;
   zone: string;
   suites: number;
   price: string;
   city: string;
+  media: any;
 }
 
 const OpportunityMobile = () => {
@@ -31,12 +32,11 @@ const OpportunityMobile = () => {
 
   useEffect(() => {
     api
-      .get('/guest/products-best')
+      .get('/opportunity')
       .then((response) => {
-        const formattedData = response.data.map((item: Opportunity) => {
-          const sortedMedia = item.product_media
-            .sort((a, b) => a.position - b.position)
-            .slice(0, 3); 
+        const formattedData = (Object.values(response.data) as Opportunity[]).map((item: Opportunity) => {
+          const sortedMedia = item.media
+            .sort((a: any, b: any) => a.position - b.position)
           const imageUrl = sortedMedia && sortedMedia[0] ? sortedMedia[0].url : '';
           return {
             ...item,
@@ -90,7 +90,7 @@ const OpportunityMobile = () => {
                 </div>
               </div>
               <div className={styles.config_immobile}>
-                <p>{opportunity.name}</p>
+                <p>{opportunity.title}</p>
                 <span>{opportunity.zone} úteis</span> <span>{opportunity.suites} Suítes</span>
               </div>
               <div className={styles.container_price_immobile}>
@@ -98,7 +98,7 @@ const OpportunityMobile = () => {
                   <p>{formatPrice(opportunity.price)}</p>
                 </div>
                 <div className={styles.location_immobile}>
-                  <span>{opportunity.city}</span>
+                  <span><Icon path={mdiMapMarker} size={.7} color={'#116015'}/>{opportunity.city}</span>
                   <span className={styles.view_immobile}>Ver imóvel</span>
                 </div>
               </div>
