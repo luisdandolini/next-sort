@@ -24,15 +24,16 @@ interface AllImoveis {
 export default function AllImoveis() {
   const [allImoveis, setAllImoveis] = useState<AllImoveis[]>([]);
   const { currentImageIndices, changeImage } = useProductImageSlider(allImoveis);
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
     api
-    .get('/all-property')
+    .get(`/property-paginate?page=${page}`)
     .then((response) => {
-        console.log(response.data)
-        const formattedData = (Object.values(response.data) as AllImoveis[]).map((item: AllImoveis) => {
+        const formattedData = response.data.data.map((item: AllImoveis) => {
           const sortedMedia = item.media
-            .sort((a: any, b: any) => a.position - b.position)
+            ? item.media.sort((a: any, b: any) => a.position - b.position)
+            : [];
           const imageUrl = sortedMedia && sortedMedia[0] ? sortedMedia[0].url : '';
           return {
             ...item,
@@ -42,7 +43,8 @@ export default function AllImoveis() {
         });
         setAllImoveis(formattedData);
       });
-  }, []);
+  }, [page]);
+
 
   return(
     <section>
@@ -83,6 +85,8 @@ export default function AllImoveis() {
             </div>
           </div>
         ))}
+        <button onClick={() => setPage(page => page - 1)}>Página Anterior</button> 
+        <button onClick={() => setPage(page => page + 1)}>Próxima Página</button> 
       </div>
     </section>
   ) 
