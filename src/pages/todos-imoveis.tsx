@@ -1,11 +1,11 @@
 import Head from 'next/head'
 import { Inter } from 'next/font/google'
-import Header from '../../components/Header'
-import Search from '../../components/Search'
+import Header from '../../components/Common/Header'
+import Search from '../../components/Common/Search'
 import AllImoveis from '../../components/TodosImoveis/AllImoveis'
 import GuideInvestor from '../../components/TodosImoveis/GuideInvestor'
 import Instagram from '../../components/TodosImoveis/Instagram'
-import Footer from '../../components/Footer'
+import Footer from '../../components/Common/Footer'
 
 export default function TodosImoveis() {
   return(

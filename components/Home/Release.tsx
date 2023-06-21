@@ -3,19 +3,17 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper";
-import styles from "../src/styles/Opportunity.module.css";
-import api from "../services/api";
+import styles from "../../src/styles/home/Release.module.css";
+import api from "../../services/api";
 import Icon from '@mdi/react';
-import { mdiChevronLeft, mdiChevronRight } from '@mdi/js';
-import formatPrice from "../functions/formatPrice";
-import { useProductImageSlider } from '../functions/changeImage'
+import { mdiChevronLeft, mdiChevronRight, mdiMapMarker } from '@mdi/js';
+import formatPrice from '../../functions/formatPrice';
+import { useProductImageSlider } from '../../functions/changeImage'
 import { useMediaQuery } from 'react-responsive';
-import OpportunityMobile from './OpportunityMobile';
-import { translateObjective } from "../functions/translateObjective";
-import { mdiMapMarker } from '@mdi/js';
+import ReleseaseMobile from "./ReleaseMobile";
+import { translateObjective } from "../../functions/translateObjective";
 
-
-interface Opportunity {
+interface Release {
   id: any;
   product_media: Array<{ url: string, position: number }>;
   objective: string;
@@ -28,18 +26,18 @@ interface Opportunity {
   media: any;
 }
 
-export default function Opportunity() {
+export default function Release() {
   const [isMobile, setIsMobile] = useState(false);
   const isMobileQuery = useMediaQuery({ query: `(max-width: 767px)` });
 
-  const [opportunities, setOpportunities] = useState<Opportunity[]>([]);
-  const { currentImageIndices, changeImage } = useProductImageSlider(opportunities);
+  const [releases, setReleases] = useState<Release[]>([]);
+  const { currentImageIndices, changeImage } = useProductImageSlider(releases);
 
   useEffect(() => {
     api
-      .get('/best-property')
+      .get('/opportunity')
       .then((response) => {
-        const formattedData = (Object.values(response.data) as Opportunity[]).map((item: Opportunity) => {
+        const formattedData = (Object.values(response.data) as Release[]).map((item: Release) => {
           const sortedMedia = item.media
             .sort((a: any, b: any) => a.position - b.position)
           const imageUrl = sortedMedia && sortedMedia[0] ? sortedMedia[0].url : '';
@@ -49,7 +47,7 @@ export default function Opportunity() {
             image: imageUrl,
           };
         });
-        setOpportunities(formattedData);
+        setReleases(formattedData);
       });
   }, []);
 
@@ -58,44 +56,44 @@ export default function Opportunity() {
   }, [isMobileQuery]);
 
   if (isMobile) {
-    return <OpportunityMobile />;
+    return <ReleseaseMobile />;
   }
 
   return (
     <section>
-      <h1 className={styles.title}>Oportunidades da semana</h1>
+      <h1 className={styles.title}>Pré - Lançamentos</h1>
       <div className={styles.container_carousel}>
         <Swiper slidesPerView={3} loop={true} navigation={true} modules={[Navigation]}>
-          {opportunities.map((opportunity) => (
-            <SwiperSlide key={opportunity.id}> 
+          {releases.map((release) => (
+            <SwiperSlide key={release.id}>
               <div className={styles.opportunity}>
                 <div className={styles.carousel}>
-                  {opportunity.product_media.map((media, index) => (
-                      <div key={index} className={styles.carouselItem} style={{ display: index === (currentImageIndices[opportunity.id] || 0) ? 'block' : 'none' }}>
+                  {release.product_media.map((media, index) => (
+                      <div key={index} className={styles.carouselItem} style={{ display: index === (currentImageIndices[release.id] || 0) ? 'block' : 'none' }}>
                         <div className={styles.bg} style={{ backgroundImage: `url(${media.url})` }}>
-                          <p className={styles.sell}>{translateObjective(opportunity.objective)}</p>
+                          <p className={styles.sell}>{translateObjective(release.objective)}</p>
                           <div className={styles.navigation}>
-                            <div onClick={() => changeImage(opportunity.id, "left")}>
+                            <div onClick={() => changeImage(release.id, "left")}>
                               <Icon path={mdiChevronLeft} size={1} className={styles.arrow}/>
                             </div>
-                            <div onClick={() => changeImage(opportunity.id, "right")}>
+                            <div onClick={() => changeImage(release.id, "right")}>
                               <Icon path={mdiChevronRight} size={1} className={styles.arrow}/>
                             </div>
                           </div>
                           <div className={styles.container_mobile}>
-                            <p className={styles.name}>{opportunity.title}</p> 
+                            <p className={styles.name}>{release.title}</p> 
                             <div className={styles.config}>
-                              <span> {opportunity.zone} úteis</span> 
-                              <span>{opportunity.suites} Suítes</span> 
+                              <span> {release.zone} úteis</span> 
+                              <span>{release.suites} Suítes</span> 
                             </div>
-                            <p className={styles.price}>{formatPrice(opportunity.price)}</p> 
+                            <p className={styles.price}>{formatPrice(release.price)}</p> 
                           </div>
                         </div>
                       </div>
                     ))}
                 </div>
                 <div className={styles.location}>
-                  <span className={styles.icon_location}><Icon path={mdiMapMarker} size={.7} color={'#116015'}/>{opportunity.city}</span> 
+                  <span className={styles.icon_location}><Icon path={mdiMapMarker} size={.7} color={'#116015'}/>{release.city}</span> 
                   <span className={styles.view}>Ver imóvel</span>
                 </div>
               </div>

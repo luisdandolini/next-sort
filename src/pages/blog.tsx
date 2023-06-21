@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import Footer from '../../components/Footer'
+import Footer from '../../components/Common/Footer'
 import Blogs from '../../components/TodosBlogs/Blogs'
 
 export default function Blog() {

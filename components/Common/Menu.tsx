@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from '../src/styles/Menu.module.css';
+import styles from '../../src/styles/common/Menu.module.css';
 import Image from 'next/image';
 import Icon from '@mdi/react';
 import { mdiClose } from '@mdi/js';

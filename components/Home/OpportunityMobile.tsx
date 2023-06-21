@@ -2,13 +2,13 @@ import React, { useState, useEffect } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
-import styles from '../src/styles/OpportunityMobile.module.css';
-import api from "../services/api";
-import { useProductImageSlider } from '../functions/changeImage';
-import formatPrice from '../functions/formatPrice';
+import styles from '../../src/styles/home/OpportunityMobile.module.css';
+import api from "../../services/api";
+import { useProductImageSlider } from '../../functions/changeImage';
+import formatPrice from '../../functions/formatPrice';
 import Icon from '@mdi/react';
 import { mdiChevronLeft, mdiChevronRight, mdiMapMarker } from '@mdi/js';
-import { translateObjective } from "../functions/translateObjective";
+import { translateObjective } from "../../functions/translateObjective";
 
 interface Opportunity {
   id: any;

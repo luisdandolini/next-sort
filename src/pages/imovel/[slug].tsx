@@ -1,7 +1,7 @@
 import Head from 'next/head'
-import Footer from '../../../components/Footer'
+import Footer from '../../../components/Common/Footer'
 import ImovelUnico from '../../../components/Imovel/ImovelUnico'
-import Menu from '../../../components/Menu'
+import Menu from '../../../components/Common/Menu'
 
 export default function Imovel() {
   return(

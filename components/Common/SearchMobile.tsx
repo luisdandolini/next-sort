@@ -1,4 +1,4 @@
-import styles from '../src/styles/SearchMobile.module.css';
+import styles from '../../src/styles/common/SearchMobile.module.css';
 import Accordion from './Accordion';
 import Icon from '@mdi/react';
 import { mdiMapMarker, mdiSwapVertical, mdiCurrencyUsd, mdiMagnify } from '@mdi/js';

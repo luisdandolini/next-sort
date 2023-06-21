@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import HeaderGalpao from '../../components/Galpoes/HeaderGalpao'
 import About from '../../components/Galpoes/About'
-import Footer from '../../components/Footer'
+import Footer from '../../components/Common/Footer'
 
 
 export default function Galpoes() {

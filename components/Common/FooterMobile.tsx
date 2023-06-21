@@ -1,5 +1,5 @@
-import styles from '../src/styles/FooterMobile.module.css';
-import Accordion from '../components/Accordion';
+import styles from '../../src/styles/common/FooterMobile.module.css';
+import Accordion from './Accordion';
 import Icon from '@mdi/react';
 import { mdiYoutube, mdiInstagram, mdiFacebook } from '@mdi/js';
 

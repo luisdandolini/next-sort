@@ -1,4 +1,4 @@
-import styles from '../src/styles/Header.module.css';
+import styles from '../../src/styles/common/Header.module.css';
 import Menu from './Menu';
 import { useState, useEffect } from 'react';
 

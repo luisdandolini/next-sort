@@ -1,4 +1,4 @@
-import styles from '../src/styles/Search.module.css';
+import styles from '../../src/styles/common/Search.module.css';
 import { useState, useEffect } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import Icon from '@mdi/react';

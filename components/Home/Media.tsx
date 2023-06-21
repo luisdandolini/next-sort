@@ -4,9 +4,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper";
-import styles from '../src/styles/Media.module.css';
-import Image from 'next/image';
-import api from "../services/api";
+import styles from '../../src/styles/home/Media.module.css';
+import api from "../../services/api";
 
 interface Media {
   id: any;

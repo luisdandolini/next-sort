@@ -3,17 +3,19 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper";
-import styles from "../src/styles/Release.module.css";
-import api from "../services/api";
+import styles from "../../src/styles/home/Opportunity.module.css";
+import api from "../../services/api";
 import Icon from '@mdi/react';
-import { mdiChevronLeft, mdiChevronRight, mdiMapMarker } from '@mdi/js';
-import formatPrice from '../functions/formatPrice';
-import { useProductImageSlider } from '../functions/changeImage'
+import { mdiChevronLeft, mdiChevronRight } from '@mdi/js';
+import formatPrice from "../../functions/formatPrice";
+import { useProductImageSlider } from '../../functions/changeImage'
 import { useMediaQuery } from 'react-responsive';
-import ReleseaseMobile from "./ReleaseMobile";
-import { translateObjective } from "../functions/translateObjective";
+import OpportunityMobile from './OpportunityMobile';
+import { translateObjective } from "../../functions/translateObjective";
+import { mdiMapMarker } from '@mdi/js';
 
-interface Release {
+
+interface Opportunity {
   id: any;
   product_media: Array<{ url: string, position: number }>;
   objective: string;
@@ -26,18 +28,18 @@ interface Release {
   media: any;
 }
 
-export default function Release() {
+export default function Opportunity() {
   const [isMobile, setIsMobile] = useState(false);
   const isMobileQuery = useMediaQuery({ query: `(max-width: 767px)` });
 
-  const [releases, setReleases] = useState<Release[]>([]);
-  const { currentImageIndices, changeImage } = useProductImageSlider(releases);
+  const [opportunities, setOpportunities] = useState<Opportunity[]>([]);
+  const { currentImageIndices, changeImage } = useProductImageSlider(opportunities);
 
   useEffect(() => {
     api
-      .get('/opportunity')
+      .get('/best-property')
       .then((response) => {
-        const formattedData = (Object.values(response.data) as Release[]).map((item: Release) => {
+        const formattedData = (Object.values(response.data) as Opportunity[]).map((item: Opportunity) => {
           const sortedMedia = item.media
             .sort((a: any, b: any) => a.position - b.position)
           const imageUrl = sortedMedia && sortedMedia[0] ? sortedMedia[0].url : '';
@@ -47,7 +49,7 @@ export default function Release() {
             image: imageUrl,
           };
         });
-        setReleases(formattedData);
+        setOpportunities(formattedData);
       });
   }, []);
 
@@ -56,44 +58,44 @@ export default function Release() {
   }, [isMobileQuery]);
 
   if (isMobile) {
-    return <ReleseaseMobile />;
+    return <OpportunityMobile />;
   }
 
   return (
     <section>
-      <h1 className={styles.title}>Pré - Lançamentos</h1>
+      <h1 className={styles.title}>Oportunidades da semana</h1>
       <div className={styles.container_carousel}>
         <Swiper slidesPerView={3} loop={true} navigation={true} modules={[Navigation]}>
-          {releases.map((release) => (
-            <SwiperSlide key={release.id}>
+          {opportunities.map((opportunity) => (
+            <SwiperSlide key={opportunity.id}> 
               <div className={styles.opportunity}>
                 <div className={styles.carousel}>
-                  {release.product_media.map((media, index) => (
-                      <div key={index} className={styles.carouselItem} style={{ display: index === (currentImageIndices[release.id] || 0) ? 'block' : 'none' }}>
+                  {opportunity.product_media.map((media, index) => (
+                      <div key={index} className={styles.carouselItem} style={{ display: index === (currentImageIndices[opportunity.id] || 0) ? 'block' : 'none' }}>
                         <div className={styles.bg} style={{ backgroundImage: `url(${media.url})` }}>
-                          <p className={styles.sell}>{translateObjective(release.objective)}</p>
+                          <p className={styles.sell}>{translateObjective(opportunity.objective)}</p>
                           <div className={styles.navigation}>
-                            <div onClick={() => changeImage(release.id, "left")}>
+                            <div onClick={() => changeImage(opportunity.id, "left")}>
                               <Icon path={mdiChevronLeft} size={1} className={styles.arrow}/>
                             </div>
-                            <div onClick={() => changeImage(release.id, "right")}>
+                            <div onClick={() => changeImage(opportunity.id, "right")}>
                               <Icon path={mdiChevronRight} size={1} className={styles.arrow}/>
                             </div>
                           </div>
                           <div className={styles.container_mobile}>
-                            <p className={styles.name}>{release.title}</p> 
+                            <p className={styles.name}>{opportunity.title}</p> 
                             <div className={styles.config}>
-                              <span> {release.zone} úteis</span> 
-                              <span>{release.suites} Suítes</span> 
+                              <span> {opportunity.zone} úteis</span> 
+                              <span>{opportunity.suites} Suítes</span> 
                             </div>
-                            <p className={styles.price}>{formatPrice(release.price)}</p> 
+                            <p className={styles.price}>{formatPrice(opportunity.price)}</p> 
                           </div>
                         </div>
                       </div>
                     ))}
                 </div>
                 <div className={styles.location}>
-                  <span className={styles.icon_location}><Icon path={mdiMapMarker} size={.7} color={'#116015'}/>{release.city}</span> 
+                  <span className={styles.icon_location}><Icon path={mdiMapMarker} size={.7} color={'#116015'}/>{opportunity.city}</span> 
                   <span className={styles.view}>Ver imóvel</span>
                 </div>
               </div>

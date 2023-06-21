@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from '../src/styles/Accordion.module.css';
+import styles from '../../src/styles/common/Accordion.module.css';
 import Icon from '@mdi/react';
 import { mdiChevronUp, mdiChevronDown } from '@mdi/js';
 

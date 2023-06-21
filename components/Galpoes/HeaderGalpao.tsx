@@ -1,4 +1,4 @@
-import Menu from "../Menu"
+import Menu from "../Common/Menu"
 import styles from '../../src/styles/galpoes_css/HeaderGalpao.module.css'
 
 export default function HeaderGalpao() {
