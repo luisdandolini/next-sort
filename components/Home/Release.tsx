@@ -12,6 +12,7 @@ import { useProductImageSlider } from '../../functions/changeImage'
 import { useMediaQuery } from 'react-responsive';
 import ReleseaseMobile from "./ReleaseMobile";
 import { translateObjective } from "../../functions/translateObjective";
+import { useRouter } from 'next/router';
 
 interface Release {
   id: any;
@@ -24,9 +25,11 @@ interface Release {
   price: string;
   city: string;
   media: any;
+  slug: string;
 }
 
 export default function Release() {
+  const router = useRouter();
   const [isMobile, setIsMobile] = useState(false);
   const isMobileQuery = useMediaQuery({ query: `(max-width: 767px)` });
 
@@ -58,6 +61,10 @@ export default function Release() {
   if (isMobile) {
     return <ReleseaseMobile />;
   }
+
+  const handleViewImovel = (imovelId: any) => {
+    router.push(`/imovel/${imovelId}`);
+  };
 
   return (
     <section>
@@ -94,7 +101,7 @@ export default function Release() {
                 </div>
                 <div className={styles.location}>
                   <span className={styles.icon_location}><Icon path={mdiMapMarker} size={.7} color={'#116015'}/>{release.city}</span> 
-                  <span className={styles.view}>Ver imóvel</span>
+                  <span className={styles.view} onClick={() => handleViewImovel(release.slug)}>Ver imóvel</span>
                 </div>
               </div>
             </SwiperSlide>

@@ -13,7 +13,7 @@ import { useMediaQuery } from 'react-responsive';
 import OpportunityMobile from './OpportunityMobile';
 import { translateObjective } from "../../functions/translateObjective";
 import { mdiMapMarker } from '@mdi/js';
-
+import { useRouter } from 'next/router';
 
 interface Opportunity {
   id: any;
@@ -26,9 +26,11 @@ interface Opportunity {
   price: string;
   city: string;
   media: any;
+  slug: string;
 }
 
 export default function Opportunity() {
+  const router = useRouter();
   const [isMobile, setIsMobile] = useState(false);
   const isMobileQuery = useMediaQuery({ query: `(max-width: 767px)` });
 
@@ -60,6 +62,10 @@ export default function Opportunity() {
   if (isMobile) {
     return <OpportunityMobile />;
   }
+
+  const handleViewImovel = (imovelId: any) => {
+    router.push(`/imovel/${imovelId}`);
+  };
 
   return (
     <section>
@@ -96,7 +102,7 @@ export default function Opportunity() {
                 </div>
                 <div className={styles.location}>
                   <span className={styles.icon_location}><Icon path={mdiMapMarker} size={.7} color={'#116015'}/>{opportunity.city}</span> 
-                  <span className={styles.view}>Ver imóvel</span>
+                  <span className={styles.view} onClick={() => handleViewImovel(opportunity.slug)}>Ver imóvel</span>
                 </div>
               </div>
             </SwiperSlide>
