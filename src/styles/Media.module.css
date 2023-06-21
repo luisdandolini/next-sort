@@ -43,11 +43,11 @@
 
 .text {
   display: -webkit-box;
-  -webkit-line-clamp: 7; /* número de linhas que você deseja exibir */
+  -webkit-line-clamp: 7; 
   -webkit-box-orient: vertical;
   overflow: hidden;
-  text-overflow: ellipsis; /* adiciona os três pontos ao final do texto truncado */
-  width: 400px; /* a largura do contêiner */
+  text-overflow: ellipsis; 
+  width: 400px; 
   font-size: .9rem;
   margin-top: 1rem;
 }
