@@ -86,7 +86,7 @@
 
 .location {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   height: 48px;
   width: 320px;
@@ -101,12 +101,14 @@
   display: flex;
   align-items: center;
   gap: .3rem;
+  margin-left: 1rem;
 }
 
 .view {
   background-color: orange;
   padding: .1rem 1rem;
   border-radius: 8rem;
+  margin-right: 1rem;
 }
 
 .navigation {
