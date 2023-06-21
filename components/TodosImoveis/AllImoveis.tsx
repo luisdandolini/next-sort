@@ -25,7 +25,11 @@ interface AllImoveis {
 export default function AllImoveis() {
   const [allImoveis, setAllImoveis] = useState<AllImoveis[]>([]);
   const { currentImageIndices, changeImage } = useProductImageSlider(allImoveis);
-  const [page, setPage] = useState(1);
+
+  const isBrowser = typeof window !== "undefined";
+  const savedPage = isBrowser ? parseInt(localStorage.getItem('savedPage') || '1', 10) : 1;
+
+  const [page, setPage] = useState(savedPage);
   const [totalPages, setTotalPages] = useState(0);
   const theme = createTheme({
     palette: {
@@ -34,13 +38,16 @@ export default function AllImoveis() {
             contrastText: '#fff',
         },
     },
-});
+  });
 
   useEffect(() => {
+    if (isBrowser) {
+      localStorage.setItem('savedPage', page.toString());
+    }
+
     api
-    .get(`/property-paginate?page=${page}`)
-    .then((response) => {
-        console.log(response.data)
+      .get(`/property-paginate?page=${page}`)
+      .then((response) => {
         const formattedData = response.data.data.map((item: AllImoveis) => {
           const sortedMedia = item.media
             ? item.media.sort((a: any, b: any) => a.position - b.position)
