@@ -3,6 +3,7 @@ import styles from '../src/styles/Menu.module.css';
 import Image from 'next/image';
 import Icon from '@mdi/react';
 import { mdiClose } from '@mdi/js';
+import Link from 'next/link';
 
 function Menu() {
   const [openMenu, setOpenMenu] = useState(false)
@@ -11,31 +12,40 @@ function Menu() {
 
   return (
     <div className={styles.container_header}>
-      <Image 
-        width={80}
-        height={32}
-        alt='Logo SORT'
-        src={'/logosort.png'}
-        className={styles.logo}
-      /> 
-      <div className={styles.menu}>
-        <div onClick={handleToggle} className={styles.toggle}>
-          <span className={styles.details}></span>
-          <span className={styles.details}></span>
-          <span className={styles.details}></span>
+      <Link href="/">
+          <Image 
+            width={80}
+            height={32}
+            alt='Logo SORT'
+            src={'/logosort.png'}
+            className={styles.logo}
+          /> 
+      </Link>
+      <div className={styles.container_menu}>
+        <div>
+          <Link href="/todos-imoveis">
+            <p>Ver imóveis</p>
+          </Link>
         </div>
-
-        {openMenu && 
-          <div  className={styles.menu_itens}>
-            <div className={styles.close} onClick={handleToggle}>
-              <Icon path={mdiClose} size={.9} className={styles.icon}/>
-            </div>
-            <ul className={styles.links} onClick={handleToggle}>
-              <li><a>Blog</a></li>
-              <li><a>Ver Imóveis</a></li>
-            </ul>
+        <div className={styles.menu}>
+          <div onClick={handleToggle} className={styles.toggle}>
+            <span className={styles.details}></span>
+            <span className={styles.details}></span>
+            <span className={styles.details}></span>
           </div>
-        }
+
+          {openMenu && 
+            <div  className={styles.menu_itens}>
+              <div className={styles.close} onClick={handleToggle}>
+                <Icon path={mdiClose} size={.9} className={styles.icon}/>
+              </div>
+              <ul className={styles.links} onClick={handleToggle}>
+                <li><a>Blog</a></li>
+                <li><a>Ver Imóveis</a></li>
+              </ul>
+            </div>
+          }
+        </div>
       </div>
     </div>
   );
