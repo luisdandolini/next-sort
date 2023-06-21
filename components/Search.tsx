@@ -19,6 +19,15 @@ export default function Search() {
   const [index, setIndex] = useState(0);
   const words = ['Digite o nome do empreendimento', 'Buscar por código do imóvel'];
   const [typing, setTyping] = useState(false);
+  const [active, setActive] = useState('Comprar')
+
+  const handleClickButtonBuy = () => {
+    setActive('Comprar')
+  }
+
+  const handleClickButtonToHire = () => {
+    setActive('Alugar')
+  }
 
   const handleTyping = (e: any) => {
     if (e.target.value === '') {
@@ -67,6 +76,19 @@ export default function Search() {
   }
 
   return(
+    <div>
+      <div className={styles.container_search}>
+        <div className={styles.title}>
+          <h1>Imóvel não se compra, se investe.</h1>
+          <p>Chamamos isso de consultoria Sort.</p>
+        </div>
+        <div className={styles.container}>
+          <div className={styles.container_buttons}>
+            <div className={`${styles.buy} ${active === 'Comprar' ? styles.setBuy : ''}`} onClick={handleClickButtonBuy}>Comprar</div>
+            <div className={`${styles.hire} ${active === 'Alugar' ? styles.setHire : ''}`} onClick={handleClickButtonToHire}>Alugar</div>
+          </div>
+        </div>
+      </div>
       <div className={styles.container_inputs}>
         <div onMouseLeave={handleMouseLeaveLocation}>
           <button onClick={handleButtonLocation} className={`${styles.options_button}  ${showOptionsLocation ? styles.first : styles.first_active}`}>
@@ -177,5 +199,6 @@ export default function Search() {
           <button>Buscar</button>
         </div>
       </div>
+    </div>
   )
 }

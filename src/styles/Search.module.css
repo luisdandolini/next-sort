@@ -1,3 +1,55 @@
+.container_search {
+  position: relative;
+    top: -290px;
+}
+
+.title {
+  text-align: center;
+  padding-top: 3.5rem;
+}
+
+.title h1 {
+  color: green;
+}
+
+.title p {
+  font-size: 1.8rem;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.buy {
+  padding: .5rem 2rem;
+  cursor: pointer;
+  width: 130px;
+}
+
+.hire {
+  padding: .5rem 2rem;
+  cursor: pointer;
+  width: 130px;
+  text-align: center;
+}
+
+.container_buttons {
+  display: flex;
+  align-items: center;
+  padding: .2rem;
+  border-radius: .8rem;
+  background-color: #FFF;
+}
+
+.setBuy,
+.setHire {
+  background-color: gray;
+  border-radius: .5rem;
+  color: #FFF;
+}
+
 .container_inputs {
   display: flex;
   justify-content: center;
