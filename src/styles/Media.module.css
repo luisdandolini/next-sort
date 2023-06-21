@@ -33,15 +33,25 @@
 
 .img {
   padding: .9rem;
-  background-color: #FFF;
   border-radius: .5rem;
   margin-bottom: 1rem;
 }
 
-.text {
-  max-width: 400px;
-  font-size: .9rem;
+.title_news {
+  font-size: 1.3rem;
 }
+
+.text {
+  display: -webkit-box;
+  -webkit-line-clamp: 7; /* número de linhas que você deseja exibir */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis; /* adiciona os três pontos ao final do texto truncado */
+  width: 400px; /* a largura do contêiner */
+  font-size: .9rem;
+  margin-top: 1rem;
+}
+
 
 @media(max-width: 759px) {
   .media {

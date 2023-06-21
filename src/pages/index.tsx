@@ -5,10 +5,10 @@ import styles from '@/styles/Home.module.css'
 import Header from '../../components/Header'
 import Opportunity from '../../components/Opportunity'
 import Release from '../../components/Release'
-import Blog from '../../components/Blog'
 import Media from '../../components/Media'
 import Footer from '../../components/Footer'
 import Search from '../../components/Search'
+import Instagram from '../../components/TodosImoveis/Instagram'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -26,7 +26,7 @@ export default function Home() {
         <Search />
         <Opportunity />
         <Release />
-        <Blog />
+        <Instagram />
         <Media />
       </main>
       <Footer />
