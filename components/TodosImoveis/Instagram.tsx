@@ -21,7 +21,6 @@ export default function Instagram() {
 
     const { data } = await axios.get(url)
     setFeedList(data.data)
-    console.log(data.data)
   }
 
   useEffect(() => {
@@ -29,7 +28,7 @@ export default function Instagram() {
   }, [])
 
   return(
-    <section>
+    <section className={styles.container_instagram}>
       <h1 className={styles.title}>Confira todas as novidades do mercardo imobiliário <br /> em nosso instagram</h1>
         <div className={styles.instagram_content}>
           <div className={styles.insta_grid}>
