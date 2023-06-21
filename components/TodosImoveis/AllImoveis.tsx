@@ -7,6 +7,7 @@ import { useProductImageSlider } from '../../functions/changeImage';
 import { translateObjective } from "../../functions/translateObjective";
 import formatPrice from "../../functions/formatPrice";
 import { createTheme, Pagination, ThemeProvider } from '@mui/material';
+import { useRouter } from 'next/router';
 
 interface AllImoveis {
   id: any;
@@ -20,9 +21,11 @@ interface AllImoveis {
   price: string;
   city: string;
   media: any;
+  slug: string;
 }
 
 export default function AllImoveis() {
+  const router = useRouter();
   const [allImoveis, setAllImoveis] = useState<AllImoveis[]>([]);
   const { currentImageIndices, changeImage } = useProductImageSlider(allImoveis);
 
@@ -48,6 +51,7 @@ export default function AllImoveis() {
     api
       .get(`/property-paginate?page=${page}`)
       .then((response) => {
+        console.log(response.data)
         const formattedData = response.data.data.map((item: AllImoveis) => {
           const sortedMedia = item.media
             ? item.media.sort((a: any, b: any) => a.position - b.position)
@@ -63,6 +67,10 @@ export default function AllImoveis() {
         setTotalPages(response.data.total_pages);
       });
   }, [page]);
+
+  const handleViewImovel = (imovelId: any) => {
+    router.push(`/imovel/${imovelId}`);
+  };
 
 
   return(
@@ -99,7 +107,7 @@ export default function AllImoveis() {
               </div>
               <div className={styles.location}>
                 <span className={styles.icon_location}><Icon path={mdiMapMarker} size={.7} color={'#116015'}/>{allImoveis.city}</span> 
-                <span className={styles.view}>Ver imóvel</span>
+                <span className={styles.view} onClick={() => handleViewImovel(allImoveis.slug)}>Ver imóvel</span>
               </div>
             </div>
           </div>
