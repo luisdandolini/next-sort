@@ -3,6 +3,7 @@ import api from '../../services/api';
 import styles from '../../src/styles/blog/Blogs.module.css';
 import { useEffect, useState } from 'react';
 import { createTheme, Pagination, ThemeProvider } from '@mui/material';
+import { useRouter } from 'next/router';
 
 interface AllBlogs {
   id: number;
@@ -12,6 +13,7 @@ interface AllBlogs {
 }
 
 export default function Blogs() {
+  const router = useRouter();
   const [allBlogs, setAllBlogs] = useState<AllBlogs[]>([]);
 
   const isBrowser = typeof window !== 'undefined';
@@ -40,6 +42,10 @@ export default function Blogs() {
     });
   }, [page]);
 
+  const handleViewBlog = (blogId: any) => {
+    router.push(`/post/${blogId}`)
+  }
+
   return (
     <section className={styles.blog}>
       <h1 className={styles.title}>Confira as notícias do Blog</h1>
@@ -61,7 +67,7 @@ export default function Blogs() {
                 dangerouslySetInnerHTML={{ __html: post.content.replace(/&nbsp;/g, ' ') }}
               ></p>
             </div>
-            <p className={styles.link}>Ler mais</p>
+            <p className={styles.link} onClick={() => handleViewBlog(post.id)}>Ler mais</p>
           </div>
         ))}
       </div>
