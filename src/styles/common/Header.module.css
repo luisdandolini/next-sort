@@ -1,6 +1,8 @@
 .bg_header {
-  background-image: url('/sortrodape.png');
+  background-image: url('../../../public/banner-home.jpg');
   height: 400px;
+  background-repeat: no-repeat;
+  background-size: cover;
   background-position: center;
 }
 
@@ -9,7 +11,7 @@
 }
 
 .title h1 {
-  color: green;
+  color: #2f734c;
 }
 
 .title p {

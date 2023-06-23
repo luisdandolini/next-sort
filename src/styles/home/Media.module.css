@@ -1,9 +1,10 @@
 .media {
-  background-image: url('/sortrodape.png');
+  background-image: url('../../../public/14.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   height: 350px;
+  opacity: .9;
 }
 
 .container_carousel {
@@ -28,7 +29,7 @@
 }
 
 .description {
-  color: #FFF;
+  color: black;
 }
 
 .img {

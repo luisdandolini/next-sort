@@ -1,6 +1,8 @@
 import Head from 'next/head'
 import Footer from '../../components/Common/Footer'
 import Blogs from '../../components/TodosBlogs/Blogs'
+import Menu from '../../components/Common/Menu'
+import Banner from '../../components/Common/Banner'
 
 export default function Blog() {
   return(
@@ -12,6 +14,8 @@ export default function Blog() {
       <link rel="icon" href="/favicon.ico" />
     </Head>
     <main>
+      <Menu />
+      <Banner />
       <Blogs />
     </main>
     <Footer />
