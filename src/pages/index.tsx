@@ -23,7 +23,7 @@ export default function Home() {
       </Head>
       <main>
         <Header />
-        <Search />
+        <Search title="Imóvel não se compra, se investe." subtitle='Chamamos isso de consultoria Sort.'/>
         <Opportunity />
         <Release />
         <Instagram />

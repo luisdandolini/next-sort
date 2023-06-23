@@ -9,7 +9,7 @@ import { mdiMagnify } from '@mdi/js';
 import SearchMobile from './SearchMobile';
 
 
-export default function Search() {
+export default function Search({ title, subtitle }: { title: string, subtitle: string }) {
   const [isMobile, setIsMobile] = useState(false);
   const isMobileQuery = useMediaQuery({ query: `(max-width: 767px)` });
   const [showOptionsLocation, setShowOptions] = useState(false);
@@ -79,8 +79,8 @@ export default function Search() {
     <div>
       <div className={styles.container_search}>
         <div className={styles.title}>
-          <h1>Imóvel não se compra, se investe.</h1>
-          <p>Chamamos isso de consultoria Sort.</p>
+          <h1>{title}</h1>
+          <p>{subtitle}</p>
         </div>
         <div className={styles.container}>
           <div className={styles.container_buttons}>

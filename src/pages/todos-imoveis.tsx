@@ -18,7 +18,7 @@ export default function TodosImoveis() {
       </Head>
       <main>
         <Header />
-        <Search />
+        <Search title="Todos os Imóveis" subtitle='Imóveis' />
         <AllImoveis />
         <GuideInvestor />
         <Instagram />
