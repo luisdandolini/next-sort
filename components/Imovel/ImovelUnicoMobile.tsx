@@ -5,78 +5,119 @@ import "swiper/css/navigation";
 import { Navigation } from "swiper";
 import Icon from '@mdi/react';
 import { mdiMapMarkerRadius, mdiBedKing, mdiCarBack, mdiRulerSquare, mdiPlusThick, mdiMinusThick } from '@mdi/js';
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import api from '../../services/api';
+import { useRouter } from 'next/router';
+
+interface ImovelData {
+  sku: string;
+  title: string;
+  price: string;
+  city: string;
+  media: any;
+  rooms: number;
+  zone_full: string;
+  suites: number;
+  price_offer: string;
+  zone: string;
+}
 
 export default function ImovelUnicoMobile() {
   const [openDescription, setOpenDescription] = useState(false);
   const [openInfoAp, setOpenInfoAp] = useState(false);
   const [openInfoEmp, setOpenInfoEmp] = useState(false);
+  const [imovelData, setImovelData] = useState<ImovelData | null>(null);
+  const router = useRouter();
 
   const handleToggleDescription = () => setOpenDescription(!openDescription);
   const handleToggleAp = () => setOpenInfoAp(!openInfoAp);
   const handleToggleEmp = () => setOpenInfoEmp(!openInfoEmp);
+  
+  useEffect(() => {
+    const { slug } = router.query;
+
+    if (slug) {
+      api
+        .get(`/property/${slug}`)
+        .then((response) => {
+          console.log(response.data)
+          const imovelData = response.data; 
+          setImovelData(imovelData);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    }
+  }, [router.query]);;
 
   return(
     <section>
       <Swiper navigation={true} modules={[Navigation]} className="mySwiper" slidesPerView={1} spaceBetween={10} loop={true}>
-        <SwiperSlide>
-          <div className={styles.img}></div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className={styles.img}></div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className={styles.img}></div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className={styles.img}></div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className={styles.img}></div>
-        </SwiperSlide>
+        {
+          imovelData && imovelData.media && imovelData.media.map((image: any, index: any) => (
+            <SwiperSlide key={index}>
+              <div className={styles.img} style={{ backgroundImage: `url(${image.url})` }}></div>
+            </SwiperSlide>
+          ))
+        }
       </Swiper>
 
-      <div className={styles.container_content}>
-        <p>CA021</p>
-        <p className={styles.imobile_name}>Casa de alto padrão em condomínio fechado com 3 suítes e 2 vagas de garagem</p>
-        <p className={styles.imobile_location}><span><Icon path={mdiMapMarkerRadius} size={.9} /></span> Praia Brava - Itajaí</p>
-        <p className={styles.imobile_price}>R$ <span>3.900.000,00</span></p>
+      {
+        imovelData && (
+          <div className={styles.container_content}>
+            <p>{imovelData.sku}</p>
+            <p className={styles.imobile_name}>{imovelData.title}</p>
+            <p className={styles.imobile_location}><span><Icon path={mdiMapMarkerRadius} size={.9} /></span>{imovelData.city}</p>
+            <p className={styles.imobile_price}>
+              {
+                imovelData.price_offer ? 
+                  <>
+                    R$ <span>{Number(imovelData.price_offer).toLocaleString('pt-BR', {minimumFractionDigits: 2})}</span>
+                  </>
+                :
+                  <>
+                    R$ <span>{Number(imovelData.price).toLocaleString('pt-BR', {minimumFractionDigits: 2})}</span>
+                  </>
+              }
+            </p>
 
-        <div className={styles.imobile_config}>
-          <p><span><Icon path={mdiBedKing} size={.9} /></span> 3 Quartos</p>
-          <p><span><Icon path={mdiCarBack} size={.9} /></span> 3 Vagas</p>
-          <p><span><Icon path={mdiRulerSquare} size={.9} /></span> 125 m</p>
-        </div>
+            <div className={styles.imobile_config}>
+              <p><span><Icon path={mdiBedKing} size={.9} /></span> {imovelData.rooms} Quartos</p>
+              <p><span><Icon path={mdiCarBack} size={.9} /></span> {imovelData.suites} Vagas</p>
+              <p><span><Icon path={mdiRulerSquare} size={.9} /></span> {imovelData.zone_full ? imovelData.zone_full : imovelData.zone}</p>
+            </div>
 
-        <div className={styles.container_description}>
-          <div className={styles.tooltip} onClick={handleToggleDescription}>
-            <p>Descrição</p> 
-            {openDescription ? <Icon path={mdiMinusThick} size={.9} /> : <Icon path={mdiPlusThick} size={.9} />}
+            <div className={styles.container_description}>
+              <div className={styles.tooltip} onClick={handleToggleDescription}>
+                <p>Descrição</p> 
+                {openDescription ? <Icon path={mdiMinusThick} size={.9} /> : <Icon path={mdiPlusThick} size={.9} />}
+              </div>
+                {openDescription && <div>Oi</div>}
+            </div>
+
+            <div className={styles.container_description}>
+              <div className={styles.tooltip} onClick={handleToggleAp}>
+                <p>Informações do Apartamento</p> 
+                {openInfoAp ? <Icon path={mdiMinusThick} size={.9} /> : <Icon path={mdiPlusThick} size={.9} />}
+              </div>
+                {openInfoAp && <div>Oi</div>}
+            </div>
+
+            <div className={styles.container_description}>
+              <div className={styles.tooltip} onClick={handleToggleEmp}>
+                <p>Informações do Empreendimento</p> 
+                {openInfoEmp ? <Icon path={mdiMinusThick} size={.9} /> : <Icon path={mdiPlusThick} size={.9} />}
+              </div>
+                {openInfoEmp && <div>Oi</div>}
+            </div>
+
+            <div className={styles.container_map}>
+              <p>Localização</p>
+              <div className={styles.map}></div>
+            </div>
           </div>
-            {openDescription && <div>Oi</div>}
-        </div>
-
-        <div className={styles.container_description}>
-          <div className={styles.tooltip} onClick={handleToggleAp}>
-            <p>Informações do Apartamento</p> 
-            {openInfoAp ? <Icon path={mdiMinusThick} size={.9} /> : <Icon path={mdiPlusThick} size={.9} />}
-          </div>
-            {openInfoAp && <div>Oi</div>}
-        </div>
-
-        <div className={styles.container_description}>
-          <div className={styles.tooltip} onClick={handleToggleEmp}>
-            <p>Informações do Empreendimento</p> 
-            {openInfoEmp ? <Icon path={mdiMinusThick} size={.9} /> : <Icon path={mdiPlusThick} size={.9} />}
-          </div>
-            {openInfoEmp && <div>Oi</div>}
-        </div>
-
-        <div className={styles.container_map}>
-          <p>Localização</p>
-          <div className={styles.map}></div>
-        </div>
-      </div>
+        )
+      }
 
       <div className={styles.container_buttons}>
         <button>Quero mais informações</button>

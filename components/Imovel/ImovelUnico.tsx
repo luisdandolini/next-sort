@@ -17,6 +17,11 @@ interface ImovelData {
   price: string;
   city: string;
   media: any;
+  rooms: number;
+  zone_full: string;
+  suites: number;
+  price_offer: string;
+  zone: string;
 }
 
 export default function ImovelUnico() {
@@ -85,9 +90,9 @@ export default function ImovelUnico() {
                   <button>Mapa</button>
                 </div>
                 <div className={styles.imobile_config}>
-                  <p><span><Icon path={mdiBedKing} size={.9} /></span> 3 Quartos</p>
-                  <p><span><Icon path={mdiCarBack} size={.9} /></span> 3 Vagas</p>
-                  <p><span><Icon path={mdiRulerSquare} size={.9} /></span> 125 m</p>
+                  <p><span><Icon path={mdiBedKing} size={.9} /></span> {imovelData.rooms} Quartos</p>
+                  <p><span><Icon path={mdiCarBack} size={.9} /></span> {imovelData.suites} Vagas</p>
+                  <p><span><Icon path={mdiRulerSquare} size={.9} /></span> {imovelData.zone_full ? imovelData.zone_full : imovelData.zone}</p>
                 </div>
 
                 <div className={styles.container_description}>

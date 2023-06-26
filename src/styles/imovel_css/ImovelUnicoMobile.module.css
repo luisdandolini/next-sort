@@ -2,6 +2,7 @@
   background-image: url('../../../public/background.jpg');
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
   height: 350px !important;
   width: 100%;
   border-radius: .5rem;

@@ -16,7 +16,7 @@ export default function Imovel() {
       <main>
         <ImovelUnico />
       </main>
-      {/* <Footer /> */}
+      <Footer />
     </>
   )
 }

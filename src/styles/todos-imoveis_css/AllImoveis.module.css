@@ -132,3 +132,9 @@
   border-radius: 50%;
   opacity: .7;
 }
+
+@media(max-width: 980px) {
+  .title {
+    margin-top: 2rem;
+  }
+}
