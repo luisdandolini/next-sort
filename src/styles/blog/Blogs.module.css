@@ -61,3 +61,17 @@
   font-size: .9rem;
   font-weight: 600;
 }
+
+@media(max-width: 980px) {
+  .container_blog {
+    width: 370px;
+    height: 460px;
+  }
+  .photo {
+    width: 370px;
+  }
+  .title_blog {
+    margin: 1rem 0;
+    height: 57px;
+  }
+}
