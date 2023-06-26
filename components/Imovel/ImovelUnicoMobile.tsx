@@ -8,6 +8,7 @@ import { mdiMapMarkerRadius, mdiBedKing, mdiCarBack, mdiRulerSquare, mdiPlusThic
 import { useState, useEffect } from "react";
 import api from '../../services/api';
 import { useRouter } from 'next/router';
+import Maps from '../Common/Maps';
 
 interface ImovelData {
   sku: string;
@@ -27,6 +28,8 @@ export default function ImovelUnicoMobile() {
   const [openInfoAp, setOpenInfoAp] = useState(false);
   const [openInfoEmp, setOpenInfoEmp] = useState(false);
   const [imovelData, setImovelData] = useState<ImovelData | null>(null);
+  const [priceOfferNumber, setPriceOfferNumber] = useState<number>(0);
+  const [priceNumber, setPriceNumber] = useState<number>(0);
   const router = useRouter();
 
   const handleToggleDescription = () => setOpenDescription(!openDescription);
@@ -43,6 +46,16 @@ export default function ImovelUnicoMobile() {
           console.log(response.data)
           const imovelData = response.data; 
           setImovelData(imovelData);
+
+          if (imovelData.price_offer) {
+            const formattedPriceOffer = imovelData.price_offer.replace(/\./g, '').replace(',', '.');
+            setPriceOfferNumber(Number(formattedPriceOffer));
+          }
+
+          if (imovelData.price) {
+            const formattedPrice = imovelData.price.replace(/\./g, '').replace(',', '.');
+            setPriceNumber(Number(formattedPrice));
+          }
         })
         .catch((error) => {
           console.error(error);
@@ -66,25 +79,25 @@ export default function ImovelUnicoMobile() {
         imovelData && (
           <div className={styles.container_content}>
             <p>{imovelData.sku}</p>
-            <p className={styles.imobile_name}>{imovelData.title}</p>
-            <p className={styles.imobile_location}><span><Icon path={mdiMapMarkerRadius} size={.9} /></span>{imovelData.city}</p>
+            <p className={styles.imobile_name}>{imovelData?.title}</p>
+            <p className={styles.imobile_location}><span><Icon path={mdiMapMarkerRadius} size={.9} /></span>{imovelData?.city}</p>
             <p className={styles.imobile_price}>
               {
-                imovelData.price_offer ? 
+                imovelData && imovelData.price_offer && imovelData.price_offer !== "0" ?
                   <>
-                    R$ <span>{Number(imovelData.price_offer).toLocaleString('pt-BR', {minimumFractionDigits: 2})}</span>
+                    R$ <span>{priceOfferNumber.toLocaleString('pt-BR', {minimumFractionDigits: 2})}</span>
                   </>
                 :
                   <>
-                    R$ <span>{Number(imovelData.price).toLocaleString('pt-BR', {minimumFractionDigits: 2})}</span>
+                    R$ <span>{priceNumber.toLocaleString('pt-BR', {minimumFractionDigits: 2})}</span>
                   </>
               }
             </p>
 
             <div className={styles.imobile_config}>
-              <p><span><Icon path={mdiBedKing} size={.9} /></span> {imovelData.rooms} Quartos</p>
-              <p><span><Icon path={mdiCarBack} size={.9} /></span> {imovelData.suites} Vagas</p>
-              <p><span><Icon path={mdiRulerSquare} size={.9} /></span> {imovelData.zone_full ? imovelData.zone_full : imovelData.zone}</p>
+              <p><span><Icon path={mdiBedKing} size={.9} /></span> {imovelData?.rooms} Quartos</p>
+              <p><span><Icon path={mdiCarBack} size={.9} /></span> {imovelData?.suites} Vagas</p>
+              <p><span><Icon path={mdiRulerSquare} size={.9} /></span> {imovelData?.zone_full ? imovelData?.zone_full : imovelData?.zone}</p>
             </div>
 
             <div className={styles.container_description}>
@@ -113,7 +126,9 @@ export default function ImovelUnicoMobile() {
 
             <div className={styles.container_map}>
               <p>Localização</p>
-              <div className={styles.map}></div>
+              <div className={styles.map}>
+                <Maps latI={-23.550520} lngI={-46.633308} zoomLevel={13}/>  
+              </div>
             </div>
           </div>
         )

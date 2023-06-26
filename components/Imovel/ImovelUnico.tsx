@@ -10,6 +10,9 @@ import { useMediaQuery } from 'react-responsive';
 import ImovelUnicoMobile from "./ImovelUnicoMobile";
 import { useRouter } from 'next/router';
 import api from "../../services/api";
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Maps from "../Common/Maps";
 
 interface ImovelData {
   sku: string;
@@ -31,8 +34,10 @@ export default function ImovelUnico() {
   const [openInfoAp, setOpenInfoAp] = useState(false);
   const [openInfoEmp, setOpenInfoEmp] = useState(false);
   const [selectedYears, setSelectedYears] = useState(3);
-  const router = useRouter();
   const [imovelData, setImovelData] = useState<ImovelData | null>(null);
+  const [modalMap, setModalMap] = useState(false);
+  const router = useRouter();
+  const openModal = () => setModalMap(!modalMap);
 
   const handleToggleDescription = () => setOpenDescription(!openDescription);
   const handleToggleAp = () => setOpenInfoAp(!openInfoAp);
@@ -87,7 +92,7 @@ export default function ImovelUnico() {
                 <p className={styles.imobile_name}>{imovelData.title}</p>  
                 <div className={styles.imobile_location}>
                   <p><span><Icon path={mdiMapMarkerRadius} size={.9} /></span> {imovelData.city}</p>
-                  <button>Mapa</button>
+                  <button onClick={openModal}>Mapa</button>
                 </div>
                 <div className={styles.imobile_config}>
                   <p><span><Icon path={mdiBedKing} size={.9} /></span> {imovelData.rooms} Quartos</p>
@@ -154,6 +159,17 @@ export default function ImovelUnico() {
           </div>
         )
       }
+      <Modal isOpen={modalMap} toggle={openModal} className="modal-dialog-centered">
+        <ModalHeader toggle={openModal}>Mapa</ModalHeader>
+        <ModalBody>
+          <Maps latI={-23.550520} lngI={-46.633308} zoomLevel={13}/>  
+        </ModalBody>
+        <ModalFooter>
+          <Button color="danger" onClick={openModal}>
+            Fecar
+          </Button>
+        </ModalFooter>
+      </Modal>
     </section>
   )
 }

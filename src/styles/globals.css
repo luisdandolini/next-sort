@@ -18,6 +18,10 @@ a {
   text-decoration: none;
 }
 
+a:visited, a:active {
+  color: inherit;
+}
+
 p {
   margin-bottom: 0px !important;
 }
