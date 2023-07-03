@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 const Enterprises = () => {
   return(
-    <section>
+    <section className={styles.bg}>
       <div className={styles.bg_enterprises}>
         <h1 className={styles.title}>Construtoras e Empreendimentos</h1>
       </div>

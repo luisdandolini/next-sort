@@ -1,3 +1,7 @@
+.bg {
+  background-color: #f6f6f6;
+}
+
 .bg_enterprises {
   background-image: url('../../../public/enterpresis-sort.svg');
   background-position: center;
@@ -35,6 +39,7 @@
   border: 1px solid #e2e2e2;
   border-radius: .5rem;
   width: 800px;
+  background-color: #fff;
 }
 
 .information {
