@@ -1,0 +1,98 @@
+.bg_enterprises {
+  background-image: url('../../../public/enterpresis-sort.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 300px;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center; 
+  position: absolute; 
+  top: 30%;
+  left: 50%; 
+  transform: translate(-50%, -50%); 
+  font-size: 2rem;
+  font-weight: 500;
+  color: #fff;
+}
+
+.container_enterprises {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 4rem;
+  border: 1px solid #e2e2e2;
+  border-radius: .5rem;
+  width: 800px;
+}
+
+.information {
+  display: flex;
+  flex-direction: column;
+}
+
+.enterprise_logo {
+  margin-bottom: 4rem;
+}
+
+.enterprise_name {
+  font-size: 1.5rem;
+}
+
+.enterprise_city {
+  font-size: .9rem;
+}
+
+.container_button {
+  margin-top: 4rem;
+}
+
+.container_button button {
+  background-color: #3E5E3F;
+  color: #fff;
+  border: none;
+  padding: .4rem 1rem;
+  border-radius: .3rem;
+  font-size: .7rem;
+  cursor: pointer;
+}
+
+@media(max-width: 768px) {
+  .title {
+    top: 27%;
+  }
+  .container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 4rem;
+    border: 1px solid #e2e2e2;
+    border-radius: 0.5rem;
+    width: 330px;
+  }
+  .enterprise {
+    width: 330px;
+    height: 330px;
+  }
+  .information {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .container_button button {
+    margin-bottom: 2rem;
+  }
+}
