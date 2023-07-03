@@ -69,3 +69,46 @@
   border-radius: .5rem;
   margin-top: 3rem;
 }
+
+@media(max-width: 768px) {
+  .bg_about {
+    background-image: url('../../../public/about-sort.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 300px;
+  }
+  .title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center; 
+    position: absolute; 
+    top: 26%;
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    font-size: 2rem;
+    font-weight: 500;
+    color: #fff;
+  }
+  .container_about h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    max-width: 350px;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+  }
+  .container_first {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+  }
+  .text_second,
+  .text {
+    width: 300px;
+  }
+  .bg_photo_second {
+    width: 300px;
+  }
+}
