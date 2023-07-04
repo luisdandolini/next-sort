@@ -53,7 +53,7 @@ export default function Midia() {
                     <p className={styles.text} dangerouslySetInnerHTML={{ __html: post.content }}></p>
                   </div>
                   <img 
-                      style={{width: '250px', height: '250px', objectFit: 'cover'}}
+                      style={{width: '250px', height: '250px', objectFit: 'cover', borderRadius: '.5rem'}}
                       className={styles.people}
                       src={`https://sort.vps-kinghost.net/media/blog/${post.media}`} 
                       alt={post.title || "Blog post"}

@@ -1,7 +1,15 @@
 .container_guide {
   margin-top: 6rem;
-  background-color: #ccc;
-  padding: 4rem 10rem;
+  background-color: #f8f8f8;
+  padding: 2rem 10rem;
+  margin-bottom: 3rem;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 4rem;
 }
 
 .guide {
@@ -27,6 +35,11 @@
   border: none;
   padding: 1rem 2rem;
   border-radius: .3rem;
+}
+
+.img_guide {
+  height: 300px;
+  width: 450px;
 }
 
 @media(max-width: 980px) {

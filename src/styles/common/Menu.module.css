@@ -36,14 +36,16 @@
 
 .menu_itens {
   position: absolute;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  width: 100%;
+  top: 89px;
+  right: 0;
+  height: 27vh;
+  width: 16%;
   opacity: 1 !important;
   background-color: #FFF;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   z-index: 100;
+  border-radius: 0.3rem;
+  overflow: hidden;
 }
 
 .links {
@@ -54,16 +56,22 @@
 .links li {
   list-style-type: none;
   font-size: .9rem;
-  margin-bottom: .5rem;
+  margin-bottom: 2rem;
 }
 
 .links li a {
   text-decoration: none;
-  color: #000;
+  color: #5e5e5e;
+}
+
+.links li {
+  border-bottom: 1px solid rgb(233, 233, 233);
+  width: 95%;
 }
 
 .links li a:hover {
   color: #3e5e3f;
+  font-weight: 500;
 }
 
 .close {

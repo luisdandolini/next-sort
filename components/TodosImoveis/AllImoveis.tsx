@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import styles from '../../src/styles/todos-imoveis_css/AllImoveis.module.css';
 import api from '../../services/api';
 import Icon from '@mdi/react';
-import { mdiChevronLeft, mdiChevronRight, mdiMapMarker } from '@mdi/js';
+import { mdiChevronLeft, mdiChevronRight, mdiMapMarker, mdiCar, mdiBedKingOutline, mdiRuler } from '@mdi/js';
 import { useProductImageSlider } from '../../functions/changeImage';
 import { translateObjective } from "../../functions/translateObjective";
 import formatPrice from "../../functions/formatPrice";
@@ -75,7 +75,6 @@ export default function AllImoveis() {
 
   return(
     <section>
-      <h1 className={styles.title}>Todos os Imóveis</h1>
       <div className={styles.gridContainer}>
         {allImoveis.map((allImoveis) => (
           <div key={allImoveis.id} className={styles.gridItem}>
@@ -96,8 +95,9 @@ export default function AllImoveis() {
                         <div className={styles.container_mobile}>
                           <p className={styles.name}>{allImoveis.title}</p> 
                           <div className={styles.config}>
-                            <span>{allImoveis.zone_full && allImoveis.zone_full !== '0' && allImoveis.zone_full !== 'm²' ? allImoveis.zone_full.replace('m²', '') : allImoveis.zone.replace('m²', '')}m² úteis</span> 
-                            <span>{allImoveis.suites} Suítes</span> 
+                            <span className={styles.with_icon}><Icon path={mdiBedKingOutline} size={.7} color={'#fff'} />{allImoveis.suites} Suítes</span> 
+                            <span className={styles.with_icon}><Icon path={mdiCar} size={.7} color={'#fff'} />{allImoveis.suites} Vagas</span> 
+                            <span className={styles.with_icon}><Icon path={mdiRuler} size={.7} color={'#fff'} />{allImoveis.zone_full && allImoveis.zone_full !== '0' && allImoveis.zone_full !== 'm²' ? allImoveis.zone_full.replace('m²', '') : allImoveis.zone.replace('m²', '')}m²</span> 
                           </div>
                           <p className={styles.price}>{formatPrice(allImoveis.price)}</p> 
                         </div>

@@ -40,8 +40,10 @@ function Menu() {
                 <Icon path={mdiClose} size={.9} className={styles.icon}/>
               </div>
               <ul className={styles.links} onClick={handleToggle}>
+                <li><a>Empreendimentos</a></li>
+                <li><a>Galpões Logísticos</a></li>
                 <li><a>Blog</a></li>
-                <li><a>Ver Imóveis</a></li>
+                <li><a>Sobre a Sort</a></li>
               </ul>
             </div>
           }

@@ -15,21 +15,25 @@
 
 .title {
   margin-top: 8rem;
-  margin-left: 10rem;
   margin-bottom: 2rem;
-  font-size: 2rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  text-align: center;
 }
 
 .container_media {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10rem;
+  gap: 2rem;
   margin-top: 2rem;
 }
 
 .description {
   color: black;
+  background-color: rgb(246, 246, 246, .6);
+  padding: 2rem 4rem;
+  border-radius: 0.5rem;
 }
 
 .img {

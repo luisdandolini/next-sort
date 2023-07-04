@@ -1,10 +1,11 @@
 .bg_header {
-  background-image: url('../../../public/banner-home.jpg');
+  background-image: url('../../../public/banner\ sort.jpg');
   height: 400px;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
 }
+
 
 .title {
   text-align: center;
