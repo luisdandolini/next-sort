@@ -4,7 +4,7 @@ import Icon from '@mdi/react';
 import { mdiMapMarker, mdiSwapVertical, mdiCurrencyUsd, mdiMagnify } from '@mdi/js';
 import { useState, useEffect } from 'react';
 
-export default function SearchMobile() {
+export default function SearchMobile({ title, subtitle }: { title: string, subtitle: string }) {
   const [index, setIndex] = useState(0);
   const words = ['Digite o nome do empreendimento', 'Buscar por código do imóvel'];
   const [typing, setTyping] = useState(false);

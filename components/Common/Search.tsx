@@ -72,7 +72,7 @@ export default function Search({ title, subtitle }: { title: string, subtitle: s
   }, [isMobileQuery]);
 
   if (isMobile) {
-    return <SearchMobile />;
+    return <SearchMobile title={title} subtitle={subtitle} />;
   }
 
   return(
