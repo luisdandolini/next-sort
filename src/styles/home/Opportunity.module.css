@@ -1,3 +1,7 @@
+.opportunity_container {
+  margin-top: -6rem;
+}
+
 .opportunity{
   width: 100%;
   display: flex;
@@ -53,8 +57,12 @@
 .name {
   color: #FFF;
   position: absolute;
-  top: -130px;
+  top: -138px;
   font-size: .9rem;
+  width: 240px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .config {
@@ -75,7 +83,7 @@
   padding: 0.2rem 0;
   width: 160px;
   position: relative;
-  left: -50px;
+  left: -66px;
   top: -102px;
   text-align: left;
   border-radius: 0.5rem;

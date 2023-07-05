@@ -60,17 +60,17 @@
 
 @media(max-width: 759px) {
   .media {
-    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 1) 20%, rgba(255, 255, 255, 0) 20%), url('/sortrodape.png');  
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 1) 20%, rgba(255, 255, 255, 0) 20%), url('/14.jpg');  
     height: 500px;
   }
   .container_media {
     display: flex;
     flex-direction: column-reverse;
     gap: 0rem;
-    margin-top: 0;
+    margin-top: 5px;
   }
   .title {
-    padding: 6rem 2rem 2rem 2rem;
+    padding: 0rem 2rem 2rem 2rem;
     margin: 0;
     text-align: center;
   }
@@ -89,14 +89,18 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 1rem;
+    padding: 0rem;
+    width: 400px;
   }
   .title_news {
     font-size: 1.5rem;
     margin-top: .5rem;
+    text-align: center;
   }
   .text {
     text-align: center;
-    margin-top: 2rem;
-    padding: 0 1.5rem;
+    padding: 0 1rem;
+    height: 109px;
   }
 }

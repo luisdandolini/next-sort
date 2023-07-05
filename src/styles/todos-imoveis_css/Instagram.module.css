@@ -16,6 +16,7 @@
   align-items: center;
   justify-content: center;
   text-align: center;
+  background-color: #f6f6f6;
 }
 
 .instagram_content h1{
@@ -84,9 +85,10 @@
 
 @media(max-width: 980px) {
   .title {
-    font-size: 1rem;
+    font-size: 1.3rem;
+    font-weight: 600;
     margin-bottom: 2rem;
-    margin-top: 5rem;
+    margin-top: 3rem;
   }
   .container_instagram {
     margin-bottom: -1rem;

@@ -27,6 +27,7 @@ interface Opportunity {
   city: string;
   media: any;
   slug: string;
+  zone_full: string
 }
 
 export default function Opportunity() {
@@ -41,6 +42,7 @@ export default function Opportunity() {
     api
       .get('/best-property')
       .then((response) => {
+        console.log(response)
         const formattedData = (Object.values(response.data) as Opportunity[]).map((item: Opportunity) => {
           const sortedMedia = item.media
             .sort((a: any, b: any) => a.position - b.position)
@@ -68,7 +70,7 @@ export default function Opportunity() {
   };
 
   return (
-    <section>
+    <section className={styles.opportunity_container}> 
       <h1 className={styles.title}>Oportunidades da semana</h1>
       <div className={styles.container_carousel}>
         <Swiper slidesPerView={3} loop={true} navigation={true} modules={[Navigation]}>
@@ -91,7 +93,7 @@ export default function Opportunity() {
                           <div className={styles.container_mobile}>
                             <p className={styles.name}>{opportunity.title}</p> 
                             <div className={styles.config}>
-                              <span> {opportunity.zone} úteis</span> 
+                              <span>{opportunity.zone_full && opportunity.zone_full !== '0' && opportunity.zone_full !== 'm²' ? opportunity.zone_full.replace('m²', '') : opportunity.zone.replace('m²', '')}m²</span>
                               <span>{opportunity.suites} Suítes</span> 
                             </div>
                             <p className={styles.price}>{formatPrice(opportunity.price)}</p> 

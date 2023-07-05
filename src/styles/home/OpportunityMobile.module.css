@@ -11,7 +11,8 @@
 .title {
   text-align: center;
   padding: 4rem 2rem 2rem 2rem;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
+  font-weight: 600;
 }
 
 .container_immobiles {
@@ -35,7 +36,7 @@
 }
 
 .config_immobile {
-  margin-top: 10.2rem;
+  margin-top: 11.4rem;
   color: #FFFFFF;
   margin-left: 1rem;
   position: relative;

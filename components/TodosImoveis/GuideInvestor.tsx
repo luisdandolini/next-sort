@@ -6,7 +6,7 @@ export default function GuideInvestor() {
   return(
     <section className={styles.container_guide}>
       <div className={styles.container}>
-        <div>
+        <div className={styles.photo}>
           <p className={styles.guide}>Quer saber qual a melhor opção para você investir?</p>
 
           <p className={styles.download}>Baixe o nosso</p>

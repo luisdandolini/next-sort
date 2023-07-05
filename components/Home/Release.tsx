@@ -26,6 +26,7 @@ interface Release {
   city: string;
   media: any;
   slug: string;
+  zone_full: string;
 }
 
 export default function Release() {
@@ -90,7 +91,7 @@ export default function Release() {
                           <div className={styles.container_mobile}>
                             <p className={styles.name}>{release.title}</p> 
                             <div className={styles.config}>
-                              <span> {release.zone} úteis</span> 
+                              <span>{release.zone_full && release.zone_full !== '0' && release.zone_full !== 'm²' ? release.zone_full.replace('m²', '') : release.zone.replace('m²', '')}m²</span>
                               <span>{release.suites} Suítes</span> 
                             </div>
                             <p className={styles.price}>{formatPrice(release.price)}</p> 
