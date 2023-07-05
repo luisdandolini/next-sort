@@ -40,7 +40,7 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 700px;
+  height: 180px;
 }
 
 .container_numbers {
@@ -48,7 +48,7 @@
   justify-content: center;
   align-items: center;
   gap: 4rem;
-  padding-top: 8rem;
+  padding-top: 2rem;
 }
 
 .numbers {
@@ -80,26 +80,21 @@
   align-items: center;
   margin-top: 4rem;
   gap: 20rem;
+  padding-top: 4rem;
 }
 
 .container_opportunity h2 {
   margin-bottom: 1rem;
 }
 
-/* .img {
-  position: relative;
-  right: 400px;
-  border-raditesteus: .5rem;
+.bg_sort {
+  background-image: url('../../../public/Foto\ Sala\ Reunião\ OK.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 400px;
 }
-
-.bg_details {
-  background-color: gray;
-  height: 150px;
-  width: 300px;
-  border-radius: .5rem;
-
-} */
-
 
 /* LOGÍSTICA */
 
@@ -108,7 +103,8 @@
   margin-top: 8rem;
 }
 
-.container_about {
+.container_about,
+.container_about_second {
   display: flex;
   justify-content: center;
   gap: 5rem;
@@ -166,6 +162,7 @@
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   margin-left: 2.8rem;
   border-radius: .5rem;
+  margin: auto;
 }
 
 .opportunity{
@@ -287,4 +284,70 @@
   border-radius: .5rem;
   font-size: .9rem;
   font-weight: 300;
+}
+
+@media(max-width: 980px) {
+  .container_opportunity {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4rem;
+    gap: 0rem;
+    padding-top: 4rem;
+  }
+  .container_opportunity h2 {
+    text-align: center;
+  }
+  .bg_sort {
+    background-image: url('../../../public/Foto\ Sala\ Reunião\ OK.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 700px;
+  }
+  .text {
+    max-width: 350px;
+    text-align: justify;
+  }
+  .container_about {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  .container_about_second {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  .img_about {
+    width: 350px;
+  }
+  .text_about {
+    width: 350px;
+  }
+  .container_opportunity_sell {
+    text-align: center;
+    margin-top: 2rem;
+  }
+  .container_opportunity_location {
+    margin-top: 4rem;
+    text-align: center;
+  }
+  .pauta {
+    border: 1px solid #116015;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem 1rem;
+    margin: 0 0.2rem;
+  }
 }

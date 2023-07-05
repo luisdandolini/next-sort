@@ -15,6 +15,7 @@ export default function About() {
   const [brco11, setBrco11] = useState<number | null>(null);
   const [ifixVariation, setIfixVariation] = useState<number | null>(null);
   const [brco11Variation, setBrco11Variation] = useState<number | null>(null);
+  const [slidesPerView, setSlidesPerView] = useState<number>(3);
 
   useEffect(() => {
     fetchIfix().then((data) => {
@@ -26,6 +27,36 @@ export default function About() {
       setBrco11(data.value);
       setBrco11Variation(data.variation);
     });
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+        const bgSort = document.querySelector('.bg_sort');
+        if (bgSort) {
+            bgSort.style.backgroundPositionY = `${window.scrollY * 0.5}px`;
+        }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+}, []);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 980) {
+        setSlidesPerView(1); 
+      } else {
+        setSlidesPerView(3); 
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    handleResize();
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
 
   return (
@@ -73,7 +104,9 @@ export default function About() {
             <p className={styles.opportunity}>Cotas</p>
           </div>
         </div>
+      </div>
 
+      <div className={styles.bg_sort}>
         <div className={styles.container_opportunity}>
           <div>
             <h2>Conheça a Sort</h2>
@@ -118,7 +151,7 @@ export default function About() {
         </div>
 
         <div className={styles.container_logistics}>
-          <div className={styles.container_about}>
+          <div className={styles.container_about_second}>
             <div>
               <Image 
                 src={'/background.jpg'}
@@ -140,7 +173,7 @@ export default function About() {
           <h2>Oportunidades à venda</h2>
 
           <div className={styles.container_carousel}>
-            <Swiper slidesPerView={3} loop={true} navigation={true} modules={[Navigation]}>
+            <Swiper slidesPerView={slidesPerView} loop={true} navigation={true} modules={[Navigation]}>
               <SwiperSlide>
                 <div className={styles.opportunity_sell}>
                   <div className={styles.bg_opportunity}></div>
@@ -210,7 +243,7 @@ export default function About() {
           <h2>Oportunidades para locação</h2>
 
           <div className={styles.container_carousel}>
-            <Swiper slidesPerView={3} loop={true} navigation={true} modules={[Navigation]}>
+            <Swiper slidesPerView={slidesPerView} loop={true} navigation={true} modules={[Navigation]}>
               <SwiperSlide>
                 <div className={styles.opportunity_sell}>
                   <div className={styles.bg_opportunity}></div>
