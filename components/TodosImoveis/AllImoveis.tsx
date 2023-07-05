@@ -8,6 +8,7 @@ import { translateObjective } from "../../functions/translateObjective";
 import formatPrice from "../../functions/formatPrice";
 import { createTheme, Pagination, ThemeProvider } from '@mui/material';
 import { useRouter } from 'next/router';
+import axios from 'axios';
 
 interface AllImoveis {
   id: any;
